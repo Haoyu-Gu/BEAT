@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/midi.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="https://unpkg.com/tone@14.8.49/build/Tone.js"></script>
+  <script defer src="https://unpkg.com/@tonejs/midi@2.0.27/build/Midi.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <!-- TODO: Replace with your lab's related works -->
+        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+          <div class="work-info">
+            <!-- TODO: Replace with actual paper title -->
+            <h5>Paper Title 1</h5>
+            <!-- TODO: Replace with brief description -->
+            <p>Brief description of the work and its main contribution.</p>
+            <!-- TODO: Replace with venue and year -->
+            <span class="work-venue">Conference/Journal 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <!-- TODO: Add more related works or remove extra items -->
+        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 2</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 3</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                <a href="https://marisa-ovo.github.io/" target="_blank">Lekai Qian</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://haoyu-gu.github.io/" target="_blank">Haoyu Gu</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Dehan Li</a><sup>*</sup>,</span>
+                    <span class="author-block">
+                      <a href="Fourth AUTHOR PERSONAL LINK" target="_blank">Boyu Cao</a>,</span>
+                      <span class="author-block">
+                        <a href="Corresponding AUTHOR PERSONAL LINK" target="_blank">Qi Liu</a><sup>†</sup>,</span>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info   you should input sth before</span> -->
+                    <span class="author-block">South China University of Technology<br>  </span>
+                    <!-- TODO: Remove this line if no equal contribution -->
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution,<sup>†</sup>Indicates Corresponding Author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser"> -->
+  <!-- <div class="container is-max-desktop"> -->
+    <!-- <div class="hero-body"> -->
+      <!-- TODO: Replace with your teaser video -->
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata"> -->
+        <!-- TODO: Add your video file path here -->
+        <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
+      <!-- </video> -->
+      <!-- TODO: Replace with your video description -->
+      <!-- <h2 class="subtitle has-text-centered"> -->
+        <!-- Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.  -->
+      <!-- </h2> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            Symbolic music representation is a fundamental challenge in computational musicology. 
+            While grid-based representations effectively preserve pitch-time spatial correspondence,
+            their inherent data sparsity leads to low encoding efficiency.
+            Discrete-event representations achieve compact encoding but
+            fail to adequately capture structural invariance and spatial
+            locality. To address these complementary limitations, we
+            propose Pianoroll-Event, a novel encoding scheme that describes 
+            pianoroll representations through events, combining
+            structural properties with encoding efficiency while maintaining 
+            temporal dependencies and local spatial patterns.
+            Specifically, we design four complementary event types:
+            Frame Events for temporal boundaries, Gap Events for sparse
+            regions, Pattern Events for note patterns, and Musical Structure 
+            Events for musical metadata. Pianoroll-Event strikes
+            an effective balance between sequence length and vocabulary 
+            size, improving encoding efficiency by 1.36× to 7.16×
+            over representative discrete sequence methods. Experiments
+            across multiple autoregressive architectures show models using
+            our representation consistently outperform baselines in
+            both quantitative and human evaluations.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Single Image Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+
+      <!-- Section Title -->
+      <h2 class="title is-3">Pianoroll-Event Data Representation</h2>
+
+      <!-- 静态图片 -->
+      <img src="static/images/core.png" 
+           alt="First research result visualization" 
+           loading="lazy"
+           style="max-width: 100%; height: auto; margin-top: 1rem;" />
+
+      <!-- 图片说明（✅ 左对齐） -->
+      <h2 class="subtitle" 
+          style="margin-top: 1rem; text-align: left; text-indent: 2em;">
+        The process of converting pianoroll representation into pianoroll-events. Through frame segmentation, partitioning, and compression operations, the pianoroll is transformed into a sequence of pianoroll-events containing diverse event types.
+      </h2>
+
+    </div>
+  </div>
+</section>
+<!-- End single image section -->
+
+
+<!-- Encoding Efficiency Comparison Section -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Encoding Efficiency Comparison</h2>
+
+      <div class="table-container" style="margin-top: 2rem;">
+        <table class="table is-striped is-hoverable is-fullwidth" style="margin: 0 auto; max-width: 700px;">
+          <thead>
+            <tr>
+              <th style="text-align: center;">Method</th>
+              <th style="text-align: center;">Length (Avg.)</th>
+              <th style="text-align: center;">Vocabulary Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #fffbeb; font-weight: 600;">
+              <td style="text-align: center;">Ours</td>
+              <td style="text-align: center;">749.8</td>
+              <td style="text-align: center;">347</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">REMI</td>
+              <td style="text-align: center;">1339.7</td>
+              <td style="text-align: center;">330</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">MIDILike</td>
+              <td style="text-align: center;">1398.9</td>
+              <td style="text-align: center;">448</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">REMI-BPE</td>
+              <td style="text-align: center;">317.8</td>
+              <td style="text-align: center;">20,000</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">ABCNotation</td>
+              <td style="text-align: center;">2575.0</td>
+              <td style="text-align: center;">128</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="subtitle is-6 has-text-centered" style="margin-top: 1.5rem; color: #666;">
+        <strong>Table 1.</strong> Encoding comparison across different representation methods, demonstrating the effectiveness of our approach in balancing sequence length and vocabulary size.
+      </p>
+
+    </div>
+  </div>
+</section>
+<!-- End Encoding Efficiency Comparison Section -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">Generated Songs</h2>
+      
+      <!-- ✅ 只让这句话左对齐 -->
+      <p class="subtitle is-5" style="text-align: left; margin-top: 0.5rem;text-indent: 2em;">
+        The following musical pieces are generated by our best-performing Transformer decoder model with Llama architecture, conditioned only on time signature and BPM. The results demonstrate the considerable potential of our representation method.
+      </p>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" controls loop height="100%" preload="metadata">
+            <source src="static/videos/score1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" controls loop height="100%" preload="metadata">
+            <source src="static/videos/score2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" controls loop height="100%" preload="metadata">
+            <source src="static/videos/score3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+    
+
+    
+
+
+
+
+<!-- =======================
+     MIDI Player Section
+     ======================= -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <h2 class="title is-3 has-text-centered">MIDI Demo</h2>
+
+      <!-- 🎨 Block 1 -->
+      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
+        <h3 class="title is-5">LSTM</h3>
+        <midi-player
+          src="static/mid/OUR_LSTM/OUR_LSTM.mid"
+          sound-font
+          visualizer="#viz-lstm">
+        </midi-player>
+        <midi-visualizer id="viz-lstm"></midi-visualizer>
+      </div>
+
+      <!-- 🎨 Block 2 -->
+      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
+        <h3 class="title is-5">GPT SMALL</h3>
+        <midi-player
+          src="static/mid/OUR_GPT_S/OUR_GPT_S.mid"
+          sound-font
+          visualizer="#viz-gpt-s">
+        </midi-player>
+        <midi-visualizer id="viz-gpt-s"></midi-visualizer>
+      </div>
+
+      <!-- 🎨 Block 3 -->
+      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
+        <h3 class="title is-5">GPT LARGE</h3>
+        <midi-player
+          src="static/mid/OUR_GPT_L/OUR_GPT_L.mid"
+          sound-font
+          visualizer="#viz-gpt-l">
+        </midi-player>
+        <midi-visualizer id="viz-gpt-l"></midi-visualizer>
+      </div>
+
+      <!-- 🎨 Block 4 -->
+      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
+        <h3 class="title is-5">LLAMA</h3>
+        <midi-player
+          src="static/mid/OUR_LLAMA/OUR_LLAMA.mid"
+          sound-font
+          visualizer="#viz-llama">
+        </midi-player>
+        <midi-visualizer id="viz-llama"></midi-visualizer>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End MIDI Player Section -->
+
+
+
+    
+<!-- Required Scripts -->
+<script src="https://cdn.jsdelivr.net/combine/
+  npm/tone@14.7.58,
+  npm/@magenta/music@1.23.1/es6/core.js,
+  npm/focus-visible@5,
+  npm/html-midi-player@1.5.0">
+</script>
+
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{YourPaperKey2026,
+  title={PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC},
+  author={Lekai Qian*, Haoyu Gu*, Dehan Li*, Boyu Cao, Qi Liu†}, 
+  journal={...}, 
+  year={2026}, 
+  url={...} 
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // --- Simple MIDI Player using Tone.js + @tonejs/midi ---
+  (function () {
+    const $ = (id) => document.getElementById(id);
+
+    const playBtn = $('midi-play');
+    const pauseBtn = $('midi-pause');
+    const stopBtn = $('midi-stop');
+    const tempoSlider = $('midi-tempo');
+    const tempoLabel = $('midi-tempo-label');
+    const fileInput = $('midi-file');
+    const urlInput = $('midi-url');
+    const urlBtn = $('midi-load-url');
+    const statusEl = $('midi-status');
+
+    let parts = [];      // [{ synth, part }]
+    let currentMidi = null;
+
+    function setStatus(msg) {
+      statusEl.textContent = 'Status: ' + msg;
+    }
+
+    function disposeAll() {
+      try {
+        parts.forEach(({ synth, part }) => {
+          if (part) part.dispose();
+          if (synth) synth.dispose();
+        });
+      } catch (e) {}
+      parts = [];
+    }
+
+    function prepareMidi(midi) {
+      disposeAll();
+      currentMidi = midi;
+
+      // 默认 BPM（如果 MIDI 里没有 tempo，则用 120）
+      const firstTempo = (midi.header.tempos && midi.header.tempos[0]) ? midi.header.tempos[0].bpm : 120;
+      Tone.Transport.bpm.value = firstTempo;
+      tempoSlider.value = Math.round(firstTempo);
+      tempoLabel.textContent = Math.round(firstTempo);
+
+      // 轻微的全局音量衰减给更好的听感余量
+      const vol = new Tone.Volume(-6).toDestination();
+
+      midi.tracks.forEach((track, idx) => {
+        // 给每条轨道一个独立 PolySynth；你也可以改成 Sampler + SoundFont
+        const synth = new Tone.PolySynth(Tone.Synth, {
+          oscillator: { type: 'triangle' },
+          envelope: { attack: 0.01, decay: 0.1, sustain: 0.3, release: 1.2 }
+        }).connect(vol);
+
+        const part = new Tone.Part((time, note) => {
+          synth.triggerAttackRelease(note.name, note.duration, time, note.velocity);
+        }, track.notes).start(0);
+
+        part.loop = false;
+        parts.push({ synth, part });
+      });
+
+      // 重置到起点
+      Tone.Transport.stop();
+      Tone.Transport.seconds = 0;
+      setStatus('MIDI prepared. Tracks: ' + midi.tracks.length);
+    }
+
+    async function loadFromArrayBuffer(ab) {
+      setStatus('Parsing MIDI…');
+      const midi = new Midi(ab);  // window.Midi (from @tonejs/midi)
+      prepareMidi(midi);
+      setStatus('MIDI ready.');
+    }
+
+    async function loadFromUrl(url) {
+      try {
+        setStatus('Fetching ' + url + ' …');
+        const res = await fetch(url);
+        const ab = await res.arrayBuffer();
+        await loadFromArrayBuffer(ab);
+      } catch (err) {
+        console.error(err);
+        setStatus('Failed to load URL (CORS or path error).');
+      }
+    }
+
+    // --- controls ---
+    playBtn.addEventListener('click', async () => {
+      await Tone.start(); // iOS/Chrome 音频解锁
+      Tone.Transport.start();
+      setStatus('Playing…');
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      Tone.Transport.pause();
+      setStatus('Paused.');
+    });
+
+    stopBtn.addEventListener('click', () => {
+      Tone.Transport.stop();
+      Tone.Transport.seconds = 0;
+      setStatus('Stopped.');
+    });
+
+    tempoSlider.addEventListener('input', () => {
+      const v = parseInt(tempoSlider.value, 10);
+      Tone.Transport.bpm.value = v;
+      tempoLabel.textContent = v;
+    });
+
+    fileInput.addEventListener('change', async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const ab = await file.arrayBuffer();
+      await loadFromArrayBuffer(ab);
+    });
+
+    urlBtn.addEventListener('click', async () => {
+      const url = urlInput.value.trim();
+      if (!url) return;
+      await loadFromUrl(url);
+    });
+
+    // 可选：页面加载后先尝试默认 demo
+    // 确保存在 static/midi/demo.mid 时再启用下行：
+    // loadFromUrl('static/midi/demo.mid');
+  })();
+</script>
+    
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
