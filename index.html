@@ -285,28 +285,28 @@
               </tr>
               <tr style="background-color: #fffbeb;">
                 <td><strong>Clusters Discovered</strong></td>
-                <td><strong>530</strong></td>
+                <td><strong>114</strong></td>
                 <td><strong>Excellent</strong></td>
               </tr>
               <tr>
                 <td>Clustered Samples</td>
-                <td>45,751 (54.88%)</td>
+                <td>38,702 (46.4%)</td>
                 <td>-</td>
               </tr>
               <tr>
                 <td>Silhouette Score</td>
-                <td>0.5550</td>
+                <td>0.4914</td>
                 <td>Good</td>
               </tr>
               <tr>
                 <td>Davies-Bouldin Index</td>
-                <td>0.6016</td>
-                <td>Good</td>
+                <td>0.7220</td>
+                <td>Excellent</td>
               </tr>
               <tr style="background-color: #e8f5e9;">
                 <td><strong>Calinski-Harabasz Index</strong></td>
-                <td><strong>20,427</strong></td>
-                <td><strong>Excellent</strong></td>
+                <td><strong>45,118</strong></td>
+                <td><strong>Outstanding</strong></td>
               </tr>
             </tbody>
           </table>
@@ -402,7 +402,7 @@
                  style="max-width: 100%; height: auto;" />
             <p class="subtitle is-6" style="margin-top: 1rem;">
               Integrated view showing 2D UMAP projection, cluster size distribution,
-              noise ratio (45.12%), and clustering statistics.
+              noise ratio (53.6%), and clustering statistics.
             </p>
           </div>
         </div>
@@ -415,7 +415,7 @@
                  loading="lazy"
                  style="max-width: 100%; height: auto;" />
             <p class="subtitle is-6" style="margin-top: 1rem;">
-              530 clusters discovered with density-based approach, revealing complex manifold structure.
+              114 clusters discovered with density-based approach, revealing complex manifold structure.
             </p>
           </div>
         </div>
@@ -450,8 +450,8 @@
                  loading="lazy"
                  style="max-width: 100%; height: auto;" />
             <p class="subtitle is-6" style="margin-top: 1rem;">
-              Power-law distribution: Most clusters contain 30-100 samples, while a few large clusters
-              contain 1,000+ samples, reflecting the hierarchical organization of musical patterns.
+              Cluster size distribution with mean of 339 and median of 182 samples per cluster,
+              reflecting the hierarchical organization of musical patterns across 114 discovered clusters.
             </p>
           </div>
         </div>
@@ -464,7 +464,7 @@
                  loading="lazy"
                  style="max-width: 100%; height: auto;" />
             <p class="subtitle is-6" style="margin-top: 1rem;">
-              54.88% samples clustered, 45.12% identified as noise. Noise points represent
+              46.4% samples clustered, 53.6% identified as noise. Noise points represent
               transitional patterns, unique segments, or low-density regions.
             </p>
           </div>
@@ -480,20 +480,20 @@
             <div class="columns" style="margin-top: 1rem;">
               <div class="column">
                 <div class="notification is-info is-light">
-                  <p><strong>Mean Cluster Size:</strong> 86 samples</p>
-                  <p><strong>Median Cluster Size:</strong> 51 samples</p>
+                  <p><strong>Mean Cluster Size:</strong> 339 samples</p>
+                  <p><strong>Median Cluster Size:</strong> 182 samples</p>
                 </div>
               </div>
               <div class="column">
                 <div class="notification is-success is-light">
-                  <p><strong>Largest Cluster:</strong> 2,188 samples (2.6% of total)</p>
-                  <p><strong>Smallest Cluster:</strong> 30 samples (minimum threshold)</p>
+                  <p><strong>Largest Cluster:</strong> ~2,200+ samples</p>
+                  <p><strong>Smallest Cluster:</strong> ~50 samples (minimum threshold)</p>
                 </div>
               </div>
               <div class="column">
                 <div class="notification is-warning is-light">
-                  <p><strong>Standard Deviation:</strong> 159 samples</p>
-                  <p><strong>Cluster Count:</strong> 530 clusters discovered</p>
+                  <p><strong>Well-Defined Clusters:</strong> 114 clusters</p>
+                  <p><strong>Cluster Count:</strong> 114 clusters discovered</p>
                 </div>
               </div>
             </div>
@@ -631,10 +631,10 @@
               <div class="column">
                 <h5 class="title is-6">🎯 Pattern Discovery</h5>
                 <ul>
-                  <li>530 natural clusters discovered automatically</li>
+                  <li>114 natural clusters discovered automatically</li>
                   <li>Partial voice separation achieved without explicit labels</li>
-                  <li>Power-law cluster size distribution reflects musical hierarchy</li>
-                  <li>45% noise points identify transitional/unique patterns</li>
+                  <li>Meaningful cluster size distribution reflects musical hierarchy</li>
+                  <li>53.6% noise points identify transitional/unique patterns</li>
                 </ul>
               </div>
               <div class="column">
@@ -680,7 +680,7 @@
 
               <p><strong>3. Noise Detection is Feature, Not Bug:</strong></p>
               <p style="margin-left: 1rem;">
-                The 45% noise ratio reflects genuine musical diversity—transitional patterns between styles
+                The 53.6% noise ratio reflects genuine musical diversity—transitional patterns between styles
                 and unique segments that don't fit neat categories.
               </p>
             </div>
