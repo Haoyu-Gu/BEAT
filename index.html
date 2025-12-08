@@ -5,29 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
-  <meta name="description" content="A comprehensive framework combining representation learning, data mining, and vector quantization for symbolic music analysis. Achieving 82% better clustering quality than K-means.">
-  <meta name="keywords" content="symbolic music, data mining, HDBSCAN, UMAP, music representation learning, clustering, machine learning">
-  <meta name="author" content="Lekai Qian, Tingran Meng, Chenyuan Hong, Haoyu Gu">
+  <meta name="title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
+  <meta name="description" content="A novel symbolic music encoding method that adopts beat units as the basic primitive, achieving efficient serialization while explicitly preserving musical priors.">
+  <meta name="keywords" content="symbolic music, music encoding, music representation, music generation, deep learning">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="South China University of Technology">
-  <meta property="og:title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
-  <meta property="og:description" content="A comprehensive framework combining representation learning, data mining, and vector quantization for symbolic music analysis.">
-  <meta property="og:url" content="https://haoyu-gu.github.io/data-mining-demo/">
+  <meta property="og:title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
+  <meta property="og:description" content="A novel symbolic music encoding method that adopts beat units as the basic primitive, achieving efficient serialization while explicitly preserving musical priors.">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
-  <meta name="citation_author" content="Qian, Lekai">
-  <meta name="citation_author" content="Meng, Tingran">
-  <meta name="citation_author" content="Hong, Chenyuan">
-  <meta name="citation_author" content="Gu, Haoyu">
+  <meta name="citation_title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
   <meta name="citation_publication_date" content="2025">
 
-  <title>MusiCode: Discrete Representation of Symbolic Music for Data Mining</title>
+  <title>BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -64,39 +57,22 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">MusiCode: Discrete Representation of Symbolic Music for Data Mining</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://marisa-ovo.github.io/" target="_blank">Lekai Qian</a><sup>*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://mikemengtr.github.io/" target="_blank">Tingran Meng</a><sup>*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="javascript:void(0)">Chenyuan Hong</a><sup>*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://haoyu-gu.github.io/" target="_blank">Haoyu Gu</a><sup>*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://xushidanggroup.netlify.app/" target="_blank">Shidang Xu</a><sup>†</sup>
-              </span>
-            </div>
+            <h1 class="title is-1 publication-title">BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations</h1>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">South China University of Technology</span><br>
-              <span class="eql-cntrb"><small><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small></span>
+            <!-- Authors hidden for double-blind review -->
+            <div class="is-size-5 publication-authors" style="color: #888; font-style: italic;">
+              <span class="author-block">Anonymous Authors</span>
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://github.com/Haoyu-Gu/data-mining" target="_blank"
+                  <a href="#" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
                   </a>
                 </span>
               </div>
@@ -115,20 +91,17 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Existing symbolic music processing methods predominantly rely on token-based representations,
-              which generate extremely long sequences and struggle to capture global structural patterns.
-              We propose <strong>MusiCode</strong>, a framework combining representation learning, data mining,
-              and vector quantization for music analysis. Our framework consists of three components:
-              (1) a Transformer-based autoencoder learning compact 768-dimensional embeddings,
-              (2) systematic data mining techniques including UMAP and HDBSCAN clustering, and
-              (3) a theoretical framework for Residual Vector Quantization (RVQ).
+              The perception of symbolic music is fundamentally based on the relative durations and interval relationships between the notes.
+              However, existing representations face an inherent trade-off between preserving these musical priors and achieving encoding efficiency.
+              In this paper, we propose <strong>BEAT</strong> (Beat-based Encoding with Anchored Tones), which breaks from the conventional note-event paradigm by adopting beat units as the basic primitive.
+              BEAT segments the temporal axis into beat units, organizing music as sequences of these units.
+              Within each beat, notes are sorted by pitch, with the first serving as an anchor point, while subsequent notes are encoded through chained relative intervals coupled with rhythmic patterns.
+              This approach achieves efficient serialization while explicitly preserving musical priors.
             </p>
             <p>
-              We implement and validate the first two components on <strong>83,362 music token embeddings</strong>.
-              Clustering analysis reveals meaningful patterns with partial voice separation.
-              Baseline comparison demonstrates HDBSCAN achieves <strong>82% higher Silhouette Score</strong>
-              than K-means by identifying density-based structures. Robustness analysis validates stability
-              under 20% noise, parameter variations, and high reproducibility (ARI > 0.51).
+              Additionally, BEAT employs beat indexing for temporal alignment, enhancing both concurrent modeling capabilities and editability, enabling seamless adaptation to diverse downstream tasks.
+              Extensive experiments demonstrate that BEAT achieves better encoding efficiency than existing methods while achieving state-of-the-art generation quality in both objective and subjective benchmarks.
+              BEAT also consistently outperforms baselines across diverse tasks including multi-track generation, segment infilling, and real-time accompaniment.
             </p>
           </div>
         </div>
@@ -136,643 +109,471 @@
     </div>
   </section>
 
-  <!-- Framework Overview -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h2 class="title is-3">MusiCode Framework</h2>
-        <img src="static/images/framework.png"
-             alt="MusiCode Framework Architecture"
-             loading="lazy"
-             style="max-width: 100%; height: auto; margin-top: 1rem;" />
-        <h2 class="subtitle" style="margin-top: 1.5rem; text-align: left; padding: 0 2rem;">
-          <strong>Overview:</strong> The Transformer-based autoencoder (Component 1) compresses token sequences
-          into 768-dimensional embeddings. The learned embeddings are analyzed through parallel data mining
-          techniques (Component 2): UMAP dimensionality reduction and HDBSCAN clustering. Component 3 provides
-          a theoretical framework for residual vector quantization.
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  <!-- Methodology -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Methodology</h2>
-
-      <div class="content">
-        <h3 class="title is-4">
-          <span class="icon has-text-info"><i class="fas fa-1"></i></span>
-          Component 1: Transformer-Based Representation Learning
-        </h3>
-        <div class="box">
-          <div class="columns">
-            <div class="column is-8">
-              <p><strong>Architecture:</strong> 6-layer Transformer autoencoder with multi-head self-attention</p>
-              <ul>
-                <li><strong>Input:</strong> REMI-tokenized music sequences (vocabulary size: 2,048)</li>
-                <li><strong>Embedding Dimension:</strong> 768-dimensional continuous vectors</li>
-                <li><strong>Training:</strong> 100 epochs on 83,362 music segments (48 hours on NVIDIA A100)</li>
-                <li><strong>Objective:</strong> Self-supervised reconstruction loss with label smoothing</li>
-              </ul>
-              <p style="margin-top: 1rem;">
-                <strong>Key Innovation:</strong> Instead of operating on lengthy token sequences (hundreds of tokens per segment),
-                our autoencoder compresses them into compact fixed-dimensional embeddings while preserving musically meaningful information.
-              </p>
-            </div>
-            <div class="column is-4">
-              <div class="box has-background-info-light">
-                <h5 class="title is-6">Model Statistics</h5>
-                <p><strong>Dataset Size:</strong> 83,362 segments</p>
-                <p><strong>Compression Ratio:</strong> ~10-20×</p>
-                <p><strong>Training Time:</strong> 48 hours</p>
-                <p><strong>Parameters:</strong> ~50M</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="title is-4" style="margin-top: 2rem;">
-          <span class="icon has-text-success"><i class="fas fa-2"></i></span>
-          Component 2: Data Mining with UMAP + HDBSCAN
-        </h3>
-        <div class="box">
-          <div class="columns">
-            <div class="column">
-              <h5 class="title is-5">UMAP Dimensionality Reduction</h5>
-              <p>Reduces 768D embeddings to 50D for clustering and 2D for visualization</p>
-              <ul>
-                <li><strong>Algorithm:</strong> Uniform Manifold Approximation and Projection</li>
-                <li><strong>Advantages:</strong> Preserves both local and global structure</li>
-                <li><strong>Complexity:</strong> O(N log N), efficient for large datasets</li>
-                <li><strong>Parameters:</strong> n_neighbors=15, min_dist=0.1, metric='cosine'</li>
-              </ul>
-            </div>
-            <div class="column">
-              <h5 class="title is-5">HDBSCAN Clustering</h5>
-              <p>Density-based clustering with automatic cluster number determination</p>
-              <ul>
-                <li><strong>Algorithm:</strong> Hierarchical Density-Based Spatial Clustering</li>
-                <li><strong>Advantages:</strong> Arbitrary shapes, noise detection, no pre-specified K</li>
-                <li><strong>Search Space:</strong> 360 parameter combinations explored</li>
-                <li><strong>Result:</strong> 530 clusters discovered automatically</li>
-              </ul>
-            </div>
-          </div>
-          <div class="notification is-info is-light" style="margin-top: 1rem;">
-            <p><strong>Why HDBSCAN over K-means?</strong></p>
-            <p>Traditional K-means requires pre-specifying cluster numbers and assumes spherical shapes.
-            HDBSCAN automatically discovers natural groupings of arbitrary shapes, identifies noise points,
-            and provides a hierarchical view of cluster structure—critical for complex music representations.</p>
-          </div>
-        </div>
-
-        <h3 class="title is-4" style="margin-top: 2rem;">
-          <span class="icon has-text-warning"><i class="fas fa-3"></i></span>
-          Component 3: Residual Vector Quantization (Theoretical Framework)
-        </h3>
-        <div class="box">
-          <div class="columns">
-            <div class="column is-7">
-              <p><strong>Goal:</strong> Convert continuous embeddings into hierarchical discrete codes</p>
-              <ul>
-                <li><strong>Multi-Layer Structure:</strong> 8 quantization layers, each with 1,024 codebook entries</li>
-                <li><strong>Compression Ratio:</strong> >300× (80 bits vs 24,576 bits for float32 768D vector)</li>
-                <li><strong>Hierarchical Encoding:</strong> Early layers capture coarse structure, later layers capture fine details</li>
-                <li><strong>Applications:</strong> Efficient storage, symbolic manipulation, discrete generative models</li>
-              </ul>
-              <p style="margin-top: 1rem; font-style: italic; color: #666;">
-                Note: This component presents a complete theoretical framework with mathematical formulation.
-                Implementation and empirical validation are reserved for future work.
-              </p>
-            </div>
-            <div class="column is-5">
-              <img src="static/images/soundstream.png"
-                   alt="RVQ Architecture"
-                   loading="lazy"
-                   style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;" />
-              <p class="is-size-7 has-text-centered" style="margin-top: 0.5rem;">
-                Residual Vector Quantization architecture inspired by SoundStream
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Results -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Key Results</h2>
-
-      <div class="content">
-        <h3 class="title is-4">Clustering Performance</h3>
-        <div class="table-container">
-          <table class="table is-striped is-hoverable is-fullwidth">
-            <thead>
-              <tr>
-                <th>Metric</th>
-                <th>Value</th>
-                <th>Assessment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Total Samples</td>
-                <td>83,362</td>
-                <td>-</td>
-              </tr>
-              <tr style="background-color: #fffbeb;">
-                <td><strong>Clusters Discovered</strong></td>
-                <td><strong>114</strong></td>
-                <td><strong>Excellent</strong></td>
-              </tr>
-              <tr>
-                <td>Clustered Samples</td>
-                <td>38,702 (46.4%)</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>Silhouette Score</td>
-                <td>0.4914</td>
-                <td>Good</td>
-              </tr>
-              <tr>
-                <td>Davies-Bouldin Index</td>
-                <td>0.7220</td>
-                <td>Excellent</td>
-              </tr>
-              <tr style="background-color: #e8f5e9;">
-                <td><strong>Calinski-Harabasz Index</strong></td>
-                <td><strong>45,118</strong></td>
-                <td><strong>Outstanding</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Baseline Comparison -->
+  <!-- Encoding Efficiency -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">HDBSCAN vs K-means Baseline Comparison</h2>
+        <h2 class="title is-3 has-text-centered">Encoding Efficiency</h2>
 
+        <!-- BPE Compression Rate -->
         <div class="columns is-centered" style="margin-top: 2rem;">
           <div class="column is-10">
+            <h3 class="title is-4">BPE Compression Rate</h3>
+            <p class="subtitle is-6" style="margin-bottom: 1.5rem;">
+              Measuring similarity to natural language through BPE compression efficiency
+            </p>
             <div class="table-container">
               <table class="table is-striped is-hoverable is-fullwidth">
                 <thead>
                   <tr>
-                    <th>Metric</th>
-                    <th>K-means</th>
-                    <th>HDBSCAN</th>
-                    <th>Improvement</th>
+                    <th>Method</th>
+                    <th>+20</th>
+                    <th>+100</th>
+                    <th>+500</th>
+                    <th>+5000</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td># Clusters</td>
-                    <td>512</td>
-                    <td>114</td>
+                    <td>ABC</td>
+                    <td>80.15%</td>
+                    <td>62.66%</td>
+                    <td>52.57%</td>
+                    <td>43.57%</td>
+                  </tr>
+                  <tr>
+                    <td>REMI</td>
+                    <td>80.18%</td>
+                    <td>70.59%</td>
+                    <td>57.95%</td>
+                    <td>38.81%</td>
+                  </tr>
+                  <tr style="background-color: #e8f5e9;">
+                    <td><strong>Ours (BEAT)</strong></td>
+                    <td><strong>64.83%</strong></td>
+                    <td><strong>58.93%</strong></td>
+                    <td><strong>49.32%</strong></td>
+                    <td><strong>37.31%</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sequence Length -->
+        <div class="columns is-centered" style="margin-top: 2rem;">
+          <div class="column is-10">
+            <h3 class="title is-4">Sequence Length Comparison</h3>
+            <p class="subtitle is-6" style="margin-bottom: 1.5rem;">
+              Average token count on Advanced Piano Expression (APEX) dataset
+            </p>
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Average Tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>REMI</td>
+                    <td>2400 Tokens</td>
+                  </tr>
+                  <tr>
+                    <td>ABC</td>
+                    <td>3450.4 Tokens</td>
+                  </tr>
+                  <tr style="background-color: #e8f5e9;">
+                    <td><strong>Ours (BEAT)</strong></td>
+                    <td><strong>1825.6 Tokens</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unconditional Generation -->
+  <section class="section hero is-light">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Unconditional Generation Results</h2>
+      <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
+        Evaluation metrics: muspy statistics (JS divergence), CLAMP2-based FMD, MOS, LLM preference
+      </p>
+
+      <!-- Model Configurations -->
+      <div class="box" style="margin-bottom: 2rem;">
+        <h4 class="title is-5">Model Configurations</h4>
+        <div class="columns">
+          <div class="column">
+            <p><strong>GPT-2 Small:</strong> 6 layers, Hidden Size 512</p>
+          </div>
+          <div class="column">
+            <p><strong>GPT-2 Large:</strong> 12 layers, Hidden Size 768</p>
+          </div>
+          <div class="column">
+            <p><strong>LLaMA:</strong> 16 layers, Hidden Size 768</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LLaMA Results -->
+      <div class="columns is-centered">
+        <div class="column is-12">
+          <h3 class="title is-4">LLaMA (16L, 768H)</h3>
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>PR</th>
+                  <th>GC</th>
+                  <th>SC</th>
+                  <th>JS</th>
+                  <th>FMD</th>
+                  <th>MOS</th>
+                  <th>LLM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>REMI</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>CP</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Octuple</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>ABC</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #e8f5e9;">
+                  <td><strong>Ours (BEAT)</strong></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>101</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <td><em>GT</em></td>
+                  <td><em>μ=0.579, σ=0.321</em></td>
+                  <td><em>μ=0.984, σ=0.007</em></td>
+                  <td><em>μ=0.935, σ=0.078</em></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- GPT-2 Large Results -->
+      <div class="columns is-centered" style="margin-top: 2rem;">
+        <div class="column is-12">
+          <h3 class="title is-4">GPT-2 Large (12L, 768H)</h3>
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>PR</th>
+                  <th>GC</th>
+                  <th>SC</th>
+                  <th>JS</th>
+                  <th>FMD</th>
+                  <th>MOS</th>
+                  <th>LLM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>REMI</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>CP</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>ABC</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #e8f5e9;">
+                  <td><strong>Ours (BEAT)</strong></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>101</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <td><em>GT</em></td>
+                  <td><em>μ=0.579, σ=0.321</em></td>
+                  <td><em>μ=0.984, σ=0.007</em></td>
+                  <td><em>μ=0.935, σ=0.078</em></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- GPT-2 Small Results -->
+      <div class="columns is-centered" style="margin-top: 2rem;">
+        <div class="column is-12">
+          <h3 class="title is-4">GPT-2 Small (6L, 512H)</h3>
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>PR</th>
+                  <th>GC</th>
+                  <th>SC</th>
+                  <th>JS</th>
+                  <th>FMD</th>
+                  <th>MOS</th>
+                  <th>LLM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>REMI</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>CP</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>Octuple</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>ABC</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #e8f5e9;">
+                  <td><strong>Ours (BEAT)</strong></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>101</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr style="background-color: #f5f5f5;">
+                  <td><em>GT</em></td>
+                  <td><em>μ=0.579, σ=0.321</em></td>
+                  <td><em>μ=0.984, σ=0.007</em></td>
+                  <td><em>μ=0.935, σ=0.078</em></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Continuation Task -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Continuation (Segment Infilling) Results</h2>
+        <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
+          20 GT samples, 4-bar prompt, 10 generations each (with velocity)
+        </p>
+
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>FMD</th>
+                    <th>MOS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>REMI</td>
+                    <td>454.07</td>
                     <td>-</td>
                   </tr>
                   <tr>
-                    <td>Noise Points</td>
-                    <td>0 (0%)</td>
-                    <td>44,660 (53.5%)</td>
+                    <td>ABC</td>
+                    <td>460.37</td>
                     <td>-</td>
                   </tr>
                   <tr style="background-color: #e8f5e9;">
-                    <td><strong>Silhouette Score</strong></td>
-                    <td>0.2701</td>
-                    <td><strong>0.4914</strong></td>
-                    <td><strong style="color: #2e7d32;">+82%</strong></td>
-                  </tr>
-                  <tr style="background-color: #e8f5e9;">
-                    <td><strong>Davies-Bouldin</strong></td>
-                    <td>1.2737</td>
-                    <td><strong>0.7220</strong></td>
-                    <td><strong style="color: #2e7d32;">-43%</strong></td>
-                  </tr>
-                  <tr style="background-color: #e8f5e9;">
-                    <td><strong>Calinski-Harabasz</strong></td>
-                    <td>4,822</td>
-                    <td><strong>45,118</strong></td>
-                    <td><strong style="color: #2e7d32;">+835%</strong></td>
-                  </tr>
-                  <tr>
-                    <td>ARI (Agreement)</td>
-                    <td colspan="2" style="text-align: center;">0.4684</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>NMI (Information)</td>
-                    <td colspan="2" style="text-align: center;">0.8843</td>
+                    <td><strong>Ours (BEAT)</strong></td>
+                    <td><strong>310.55</strong></td>
                     <td>-</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="subtitle is-6 has-text-centered" style="margin-top: 1rem; color: #666;">
-              HDBSCAN demonstrates superior performance across all quality metrics, validating density-based
-              clustering for music representation analysis.
-            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Visualizations -->
+  <!-- Audio Samples -->
   <section class="section hero is-light">
     <div class="container">
-      <h2 class="title is-3 has-text-centered">Clustering Visualizations</h2>
+      <h2 class="title is-3 has-text-centered">Audio Samples</h2>
+      <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
+        Generated music samples from different models
+      </p>
 
       <div class="columns is-multiline is-centered">
-        <div class="column is-10">
-          <div class="box">
-            <h4 class="title is-5">Comprehensive Dashboard</h4>
-            <img src="static/images/dashboard.png"
-                 alt="Comprehensive clustering dashboard"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <p class="subtitle is-6" style="margin-top: 1rem;">
-              Integrated view showing 2D UMAP projection, cluster size distribution,
-              noise ratio (53.6%), and clustering statistics.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-5">
-          <div class="box">
-            <h4 class="title is-5">HDBSCAN Clustering</h4>
-            <img src="static/images/clustering_viz.png"
-                 alt="HDBSCAN clustering visualization"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <p class="subtitle is-6" style="margin-top: 1rem;">
-              114 clusters discovered with density-based approach, revealing complex manifold structure.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-5">
-          <div class="box">
-            <h4 class="title is-5">K-means Baseline</h4>
-            <img src="static/images/kmeans_baseline.png"
-                 alt="K-means baseline comparison"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <p class="subtitle is-6" style="margin-top: 1rem;">
-              K-means with 512 clusters shows lower quality metrics due to forced spherical assumptions.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Detailed Statistics -->
-  <section class="section hero is-light">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Detailed Clustering Statistics</h2>
-
-      <div class="columns is-multiline">
+        <!-- Sample cards will be added here -->
         <div class="column is-6">
-          <div class="box">
-            <h4 class="title is-5">Cluster Size Distribution</h4>
-            <img src="static/images/cluster_histogram.png"
-                 alt="Cluster size histogram"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <p class="subtitle is-6" style="margin-top: 1rem;">
-              Cluster size distribution with mean of 339 and median of 182 samples per cluster,
-              reflecting the hierarchical organization of musical patterns across 114 discovered clusters.
-            </p>
+          <div class="music-card">
+            <div class="music-header">
+              <h3 class="music-title">BEAT - LLaMA</h3>
+            </div>
+            <p class="music-description">Generated sample using BEAT encoding with LLaMA model</p>
+            <audio controls class="music-player" preload="auto">
+              <source src="static/mid/OUR_LLAMA/OUR_LLAMA.mid" type="audio/midi">
+              Your browser does not support the audio element.
+            </audio>
           </div>
         </div>
 
         <div class="column is-6">
-          <div class="box">
-            <h4 class="title is-5">Noise Point Distribution</h4>
-            <img src="static/images/noise_pie.png"
-                 alt="Noise distribution pie chart"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <p class="subtitle is-6" style="margin-top: 1rem;">
-              46.4% samples clustered, 53.6% identified as noise. Noise points represent
-              transitional patterns, unique segments, or low-density regions.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-12">
-          <div class="box">
-            <h4 class="title is-5">Cluster Size Statistics</h4>
-            <img src="static/images/cluster_boxplot.png"
-                 alt="Cluster size boxplot"
-                 loading="lazy"
-                 style="max-width: 100%; height: auto;" />
-            <div class="columns" style="margin-top: 1rem;">
-              <div class="column">
-                <div class="notification is-info is-light">
-                  <p><strong>Mean Cluster Size:</strong> 339 samples</p>
-                  <p><strong>Median Cluster Size:</strong> 182 samples</p>
-                </div>
-              </div>
-              <div class="column">
-                <div class="notification is-success is-light">
-                  <p><strong>Largest Cluster:</strong> ~2,200+ samples</p>
-                  <p><strong>Smallest Cluster:</strong> ~50 samples (minimum threshold)</p>
-                </div>
-              </div>
-              <div class="column">
-                <div class="notification is-warning is-light">
-                  <p><strong>Well-Defined Clusters:</strong> 114 clusters</p>
-                  <p><strong>Cluster Count:</strong> 114 clusters discovered</p>
-                </div>
-              </div>
+          <div class="music-card">
+            <div class="music-header">
+              <h3 class="music-title">BEAT - GPT-2 Large</h3>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Robustness Analysis -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3 has-text-centered">Comprehensive Robustness Analysis</h2>
-
-        <div class="columns is-multiline is-centered">
-          <div class="column is-6">
-            <div class="box">
-              <h4 class="title is-5">
-                <span class="icon has-text-danger"><i class="fas fa-exclamation-triangle"></i></span>
-                Noise Sensitivity Analysis
-              </h4>
-              <img src="static/images/noise_sensitivity.png"
-                   alt="Noise sensitivity analysis"
-                   loading="lazy"
-                   style="max-width: 100%; height: auto;" />
-              <p class="subtitle is-6" style="margin-top: 1rem;">
-                Clustering remains stable under up to <strong>20% Gaussian noise</strong>.
-                At 10% noise: ARI > 0.39, NMI > 0.77, demonstrating graceful degradation.
-              </p>
-            </div>
-          </div>
-
-          <div class="column is-6">
-            <div class="box">
-              <h4 class="title is-5">
-                <span class="icon has-text-info"><i class="fas fa-sliders-h"></i></span>
-                Parameter Stability
-              </h4>
-              <img src="static/images/param_stability.png"
-                   alt="Parameter stability analysis"
-                   loading="lazy"
-                   style="max-width: 100%; height: auto;" />
-              <p class="subtitle is-6" style="margin-top: 1rem;">
-                Consistent performance across UMAP dimensionality (50-100),
-                neighborhood size (10-30), and cluster count variations.
-              </p>
-            </div>
-          </div>
-
-          <div class="column is-8">
-            <div class="box">
-              <h4 class="title is-5">
-                <span class="icon has-text-success"><i class="fas fa-redo"></i></span>
-                Reproducibility Assessment
-              </h4>
-              <img src="static/images/reproducibility.png"
-                   alt="Reproducibility analysis"
-                   loading="lazy"
-                   style="max-width: 100%; height: auto;" />
-              <div class="columns" style="margin-top: 1rem;">
-                <div class="column">
-                  <div class="notification is-success is-light">
-                    <p><strong>10 Independent Runs</strong></p>
-                    <p>Mean Pairwise ARI: 0.518 ± 0.010</p>
-                    <p>Silhouette Score CV: <1.13%</p>
-                  </div>
-                </div>
-                <div class="column">
-                  <div class="notification is-info is-light">
-                    <p><strong>High Consistency</strong></p>
-                    <p>All runs achieve Silhouette Score: 0.332-0.347</p>
-                    <p>Pairwise ARI range: 0.49-0.54</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-centered" style="margin-top: 2rem;">
-          <div class="column is-10">
-            <div class="box has-background-primary-light">
-              <h4 class="title is-5">
-                <i class="fas fa-check-circle"></i> Robustness Summary
-              </h4>
-              <div class="content">
-                <div class="columns">
-                  <div class="column">
-                    <p><strong>✓ Noise Robustness:</strong></p>
-                    <ul>
-                      <li>Stable under 5% noise (ARI > 0.39, NMI > 0.77)</li>
-                      <li>Graceful degradation up to 20% noise</li>
-                      <li>Structure preserved despite perturbations</li>
-                    </ul>
-                  </div>
-                  <div class="column">
-                    <p><strong>✓ Parameter Stability:</strong></p>
-                    <ul>
-                      <li>Minimal variation across UMAP dimensions</li>
-                      <li>Consistent with neighborhood size changes</li>
-                      <li>Smooth performance curves</li>
-                    </ul>
-                  </div>
-                  <div class="column">
-                    <p><strong>✓ High Reproducibility:</strong></p>
-                    <ul>
-                      <li>Mean pairwise ARI = 0.518</li>
-                      <li>Silhouette CV < 1.13%</li>
-                      <li>Reliable for production systems</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Findings -->
-  <section class="section hero is-light">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Key Findings & Insights</h2>
-
-      <div class="columns is-multiline">
-        <div class="column is-12">
-          <div class="box has-background-success-light">
-            <h4 class="title is-4">
-              <span class="icon has-text-success"><i class="fas fa-lightbulb"></i></span>
-              Main Discoveries
-            </h4>
-            <div class="columns">
-              <div class="column">
-                <h5 class="title is-6">🎯 Pattern Discovery</h5>
-                <ul>
-                  <li>114 natural clusters discovered automatically</li>
-                  <li>Partial voice separation achieved without explicit labels</li>
-                  <li>Meaningful cluster size distribution reflects musical hierarchy</li>
-                  <li>53.6% noise points identify transitional/unique patterns</li>
-                </ul>
-              </div>
-              <div class="column">
-                <h5 class="title is-6">📊 Superior Performance</h5>
-                <ul>
-                  <li><strong>82% higher</strong> Silhouette Score vs K-means</li>
-                  <li><strong>835% higher</strong> Calinski-Harabasz Index</li>
-                  <li><strong>43% lower</strong> Davies-Bouldin Index</li>
-                  <li>Automatic cluster number determination</li>
-                </ul>
-              </div>
-              <div class="column">
-                <h5 class="title is-6">🛡️ Robustness Validated</h5>
-                <ul>
-                  <li>Stable under 20% noise perturbations</li>
-                  <li>Consistent across parameter variations</li>
-                  <li>High reproducibility (ARI=0.518, CV<1.13%)</li>
-                  <li>Production-ready reliability</li>
-                </ul>
-              </div>
-            </div>
+            <p class="music-description">Generated sample using BEAT encoding with GPT-2 Large model</p>
+            <audio controls class="music-player" preload="auto">
+              <source src="static/mid/OUR_GPT_L/OUR_GPT_L.mid" type="audio/midi">
+              Your browser does not support the audio element.
+            </audio>
           </div>
         </div>
 
         <div class="column is-6">
-          <div class="box">
-            <h4 class="title is-5">
-              <span class="icon has-text-info"><i class="fas fa-book"></i></span>
-              What We Learned
-            </h4>
-            <div class="content">
-              <p><strong>1. Learned Representations Capture Structure:</strong></p>
-              <p style="margin-left: 1rem;">
-                The Transformer autoencoder successfully learns meaningful musical patterns without explicit supervision,
-                as evidenced by the emergence of voice-separated clusters and hierarchical organization.
-              </p>
-
-              <p><strong>2. Density-Based Clustering is Essential:</strong></p>
-              <p style="margin-left: 1rem;">
-                HDBSCAN's 82% performance improvement over K-means demonstrates that music representations form
-                complex, non-spherical structures requiring density-based methods.
-              </p>
-
-              <p><strong>3. Noise Detection is Feature, Not Bug:</strong></p>
-              <p style="margin-left: 1rem;">
-                The 53.6% noise ratio reflects genuine musical diversity—transitional patterns between styles
-                and unique segments that don't fit neat categories.
-              </p>
+          <div class="music-card">
+            <div class="music-header">
+              <h3 class="music-title">BEAT - GPT-2 Small</h3>
             </div>
+            <p class="music-description">Generated sample using BEAT encoding with GPT-2 Small model</p>
+            <audio controls class="music-player" preload="auto">
+              <source src="static/mid/OUR_GPT_S/OUR_GPT_S.mid" type="audio/midi">
+              Your browser does not support the audio element.
+            </audio>
           </div>
         </div>
 
         <div class="column is-6">
-          <div class="box">
-            <h4 class="title is-5">
-              <span class="icon has-text-warning"><i class="fas fa-road"></i></span>
-              Future Directions
-            </h4>
-            <div class="content">
-              <p><strong>Short-term Goals:</strong></p>
-              <ul>
-                <li>Implement and validate RVQ framework empirically</li>
-                <li>Integrate explicit musical features (pitch, rhythm, harmony)</li>
-                <li>Evaluate on larger and more diverse datasets</li>
-                <li>Develop interactive visualization tools</li>
-              </ul>
-
-              <p><strong>Long-term Vision:</strong></p>
-              <ul>
-                <li><strong>Conditional Generation:</strong> Use embeddings for style transfer and variation</li>
-                <li><strong>Music Information Retrieval:</strong> Similarity search and recommendation</li>
-                <li><strong>Educational Applications:</strong> Identify representative examples for teaching</li>
-                <li><strong>Compression:</strong> Efficient storage with 300× compression ratio</li>
-              </ul>
+          <div class="music-card">
+            <div class="music-header">
+              <h3 class="music-title">BEAT - LSTM</h3>
             </div>
+            <p class="music-description">Generated sample using BEAT encoding with LSTM model</p>
+            <audio controls class="music-player" preload="auto">
+              <source src="static/mid/OUR_LSTM/OUR_LSTM.mid" type="audio/midi">
+              Your browser does not support the audio element.
+            </audio>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contributions -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Main Contributions</h2>
-
-      <div class="content">
-        <div class="columns">
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h4 class="title is-5">
-                <span class="icon has-text-info"><i class="fas fa-brain"></i></span>
-                Representation Learning
-              </h4>
-              <p>
-                Transformer-based autoencoder learning compact 768-dimensional embeddings from
-                83,362 music token sequences through self-supervised reconstruction.
-              </p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h4 class="title is-5">
-                <span class="icon has-text-success"><i class="fas fa-project-diagram"></i></span>
-                Data Mining Analysis
-              </h4>
-              <p>
-                Systematic UMAP+HDBSCAN pipeline with 360 parameter configurations,
-                achieving 82% better Silhouette Score than K-means baseline.
-              </p>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="box" style="height: 100%;">
-              <h4 class="title is-5">
-                <span class="icon has-text-warning"><i class="fas fa-layer-group"></i></span>
-                Theoretical Framework
-              </h4>
-              <p>
-                Complete Residual Vector Quantization framework for hierarchical discrete encoding,
-                enabling >300× compression ratio.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box">
-          <h4 class="title is-5">
-            <span class="icon has-text-danger"><i class="fas fa-check-double"></i></span>
-            Comprehensive Robustness Validation
-          </h4>
-          <ul>
-            <li><strong>Noise Sensitivity:</strong> Stable under 20% Gaussian noise with graceful degradation</li>
-            <li><strong>Parameter Stability:</strong> Consistent across UMAP and HDBSCAN parameter variations</li>
-            <li><strong>Reproducibility:</strong> High consistency (mean pairwise ARI=0.518, Silhouette CV<1.13%)</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -788,13 +589,11 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{qian2025musicode,
-  title={MusiCode: Discrete Representation of Symbolic Music for Data Mining},
-  author={Qian, Lekai and Meng, Tingran and Hong, Chenyuan and Gu, Haoyu and Xu, Shidang},
-  journal={Data Mining Course Project},
-  year={2025},
-  institution={South China University of Technology},
-  url={https://github.com/Haoyu-Gu/data-mining}
+      <pre id="bibtex-code"><code>@article{anonymous2025beat,
+  title={BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations},
+  author={Anonymous},
+  journal={Under Review},
+  year={2025}
 }</code></pre>
     </div>
   </section>
