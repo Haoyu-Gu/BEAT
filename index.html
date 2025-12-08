@@ -519,63 +519,253 @@
     <div class="container">
       <h2 class="title is-3 has-text-centered">Audio Samples</h2>
       <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-        Generated music samples from different models
+        Generated music samples demonstrating BEAT encoding quality
       </p>
 
-      <div class="columns is-multiline is-centered">
-        <!-- Sample cards will be added here -->
-        <div class="column is-6">
-          <div class="music-card">
+      <!-- Section 1: Piano Solo - Unconditional Generation -->
+      <div class="samples-section">
+        <h3 class="samples-section-title">Piano Solo</h3>
+        <p class="samples-section-desc">Semantically coherent melodies with clear phrase structure</p>
+
+        <div class="music-grid">
+          <!-- Single audio cards for individual samples -->
+          <div class="music-card single">
             <div class="music-header">
-              <h3 class="music-title">BEAT - LLaMA</h3>
+              <h4 class="music-title">Long-term Coherence <span class="music-tag ours">BEAT</span></h4>
             </div>
-            <p class="music-description">Generated sample using BEAT encoding with LLaMA model</p>
-            <audio controls class="music-player" preload="auto">
-              <source src="static/mid/OUR_LLAMA/OUR_LLAMA.mid" type="audio/midi">
-              Your browser does not support the audio element.
+            <p class="music-description">Maintains consistent thematic development across the piece with clear phrase structure and logical melodic progression</p>
+            <audio controls class="music-player" preload="none">
+              <source src="static/samples/previous_model/sample_20251012_170334_058.mp3" type="audio/mpeg">
             </audio>
           </div>
-        </div>
 
-        <div class="column is-6">
-          <div class="music-card">
+          <div class="music-card single">
             <div class="music-header">
-              <h3 class="music-title">BEAT - GPT-2 Large</h3>
+              <h4 class="music-title">Harmonic Coordination <span class="music-tag ours">BEAT</span></h4>
             </div>
-            <p class="music-description">Generated sample using BEAT encoding with GPT-2 Large model</p>
-            <audio controls class="music-player" preload="auto">
-              <source src="static/mid/OUR_GPT_L/OUR_GPT_L.mid" type="audio/midi">
-              Your browser does not support the audio element.
+            <p class="music-description">Piano left and right hands maintain excellent coordination with clear melodic dialogue and harmonious voice movement</p>
+            <audio controls class="music-player" preload="none">
+              <source src="static/samples/previous_model/sample_20251012_170334_045.mp3" type="audio/mpeg">
             </audio>
           </div>
-        </div>
 
-        <div class="column is-6">
-          <div class="music-card">
+          <div class="music-card single">
             <div class="music-header">
-              <h3 class="music-title">BEAT - GPT-2 Small</h3>
+              <h4 class="music-title">Creative Expression <span class="music-tag ours">BEAT</span></h4>
             </div>
-            <p class="music-description">Generated sample using BEAT encoding with GPT-2 Small model</p>
-            <audio controls class="music-player" preload="auto">
-              <source src="static/mid/OUR_GPT_S/OUR_GPT_S.mid" type="audio/midi">
-              Your browser does not support the audio element.
+            <p class="music-description">Features innovative harmonic progressions, unexpected melodic turns, and creative rhythmic patterns</p>
+            <audio controls class="music-player" preload="none">
+              <source src="static/samples/previous_model/sample_20251012_170334_147.mp3" type="audio/mpeg">
             </audio>
           </div>
-        </div>
 
-        <div class="column is-6">
-          <div class="music-card">
+          <div class="music-card single">
             <div class="music-header">
-              <h3 class="music-title">BEAT - LSTM</h3>
+              <h4 class="music-title">Key Modulation <span class="music-tag ours">BEAT</span></h4>
             </div>
-            <p class="music-description">Generated sample using BEAT encoding with LSTM model</p>
-            <audio controls class="music-player" preload="auto">
-              <source src="static/mid/OUR_LSTM/OUR_LSTM.mid" type="audio/midi">
-              Your browser does not support the audio element.
+            <p class="music-description">Demonstrates smooth key transitions with natural pivot chords and seamless modulation between different tonalities</p>
+            <audio controls class="music-player" preload="none">
+              <source src="static/samples/previous_model/sample_20251017_172121_060.mp3" type="audio/mpeg">
             </audio>
           </div>
         </div>
       </div>
+
+      <!-- Section 2: Multi-track Generation -->
+      <div class="samples-section">
+        <h3 class="samples-section-title">Multi-track Ensemble</h3>
+        <p class="samples-section-desc">Rich textures with multiple instruments in coordination</p>
+
+        <div class="music-grid">
+          <!-- String Quartet - Comparison layout for two samples -->
+          <div class="music-card comparison">
+            <div class="music-header">
+              <h4 class="music-title">String Quartet</h4>
+            </div>
+            <p class="music-description">Violin I, Violin II, Viola, Cello - four voices interweaving in classical chamber style</p>
+            <div class="comparison-row">
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 1</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/string_quartet/sample_20251205_131716_223_223_224_225_005_3.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 2</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/string_quartet/sample_20251205_193109_223_223_224_225_010_3.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <!-- Piano Quartet -->
+          <div class="music-card comparison">
+            <div class="music-header">
+              <h4 class="music-title">Piano Quartet</h4>
+            </div>
+            <p class="music-description">Piano with violin, viola and cello - rich harmonies blending with lyrical strings</p>
+            <div class="comparison-row">
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 1</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/piano_quartet/sample_20251205_170452_183_231_231_231_017_1.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 2</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/piano_quartet/sample_20251205_170452_183_231_231_231_018_2.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <!-- Piano & Choir -->
+          <div class="music-card comparison">
+            <div class="music-header">
+              <h4 class="music-title">Piano & Choir</h4>
+            </div>
+            <p class="music-description">Piano accompaniment with SATB choir - soprano, alto, tenor, bass voices in harmony</p>
+            <div class="comparison-row">
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 1</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/piano_choir/sample_20251205_165123_183_183_235_235_235_235_002_2.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 2</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/piano_choir/sample_20251205_165123_183_183_235_235_235_235_006_3.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clarinet & Piano -->
+          <div class="music-card comparison">
+            <div class="music-header">
+              <h4 class="music-title">Clarinet & Piano</h4>
+            </div>
+            <p class="music-description">Expressive clarinet melody supported by piano accompaniment</p>
+            <div class="comparison-row">
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 1</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/clarinet_piano/sample_20251205_145009_183_183_251_004_2.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Sample 2</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/multitrack/clarinet_piano/sample_20251205_145009_183_183_251_008_2.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Method Comparison (placeholder for future use) -->
+      <div class="samples-section">
+        <h3 class="samples-section-title">Method Comparison</h3>
+        <p class="samples-section-desc">Compare BEAT encoding with baseline methods</p>
+
+        <div class="music-grid">
+          <!-- Full-width comparison card -->
+          <div class="music-card full-width horizontal">
+            <div class="music-header">
+              <h4 class="music-title">Encoding Methods Comparison (Same Prompt)</h4>
+            </div>
+            <p class="music-description">Generated from the same model architecture with different encoding methods</p>
+            <div class="audio-row">
+              <div class="audio-item">
+                <span class="music-label">BEAT (Ours) <span class="music-tag ours">Ours</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_058.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">REMI <span class="music-tag baseline">Baseline</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_045.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">ABC <span class="music-tag baseline">Baseline</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_147.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">CP <span class="music-tag baseline">Baseline</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251017_172121_060.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vertical A/B comparison -->
+          <div class="music-card vertical">
+            <div class="music-header">
+              <h4 class="music-title">A/B Comparison</h4>
+            </div>
+            <p class="music-description">Direct comparison between BEAT and REMI encoding</p>
+            <div class="audio-stack">
+              <div class="audio-item">
+                <span class="music-label">BEAT (Ours) <span class="music-tag ours">Ours</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_058.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-divider"></div>
+              <div class="audio-item">
+                <span class="music-label">REMI <span class="music-tag baseline">Baseline</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_045.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid layout for multiple samples -->
+          <div class="music-card grid-layout">
+            <div class="music-header">
+              <h4 class="music-title">Multiple Samples</h4>
+            </div>
+            <p class="music-description">Various samples from BEAT encoding</p>
+            <div class="audio-grid">
+              <div class="audio-item">
+                <span class="music-label">Sample 1</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_058.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">Sample 2</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_045.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">Sample 3</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251012_170334_147.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+              <div class="audio-item">
+                <span class="music-label">Sample 4</span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/previous_model/sample_20251017_172121_060.mp3" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

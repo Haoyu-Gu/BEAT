@@ -119,7 +119,14 @@ body {
     font-weight: 800 !important;
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
-    line-height: 1.1 !important;
+    line-height: 1.2 !important;
+    font-size: 2.8rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-title {
+    font-size: 2rem !important;
+  }
 }
 
 .publication-banner {
@@ -749,7 +756,11 @@ a:focus {
   }
 }
 
-/* Music Player Card Styles */
+/* =============================================
+   Music Player Card Styles - Multiple Layouts
+   ============================================= */
+
+/* Base Music Card */
 .music-card {
   background: var(--background-primary);
   border-radius: var(--border-radius-lg);
@@ -757,7 +768,7 @@ a:focus {
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   border: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
+  height: 100%;
 }
 
 .music-card:hover {
@@ -769,20 +780,26 @@ a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .music-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
 }
 
+.music-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
 .music-description {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin-bottom: 1rem;
 }
 
@@ -793,34 +810,204 @@ a:focus {
   outline: none;
 }
 
-/* Dual audio player container */
-.dual-audio {
+.music-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* =============================================
+   Layout 1: Single Audio (default)
+   - One audio player per card
+   ============================================= */
+.music-card.single .music-player {
+  margin-top: auto;
+}
+
+/* =============================================
+   Layout 2: Vertical Stack (multiple audios stacked)
+   - Multiple audio players stacked vertically
+   - Good for half-width cards
+   ============================================= */
+.music-card.vertical .audio-stack {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
-.dual-audio .music-player {
+.music-card.vertical .audio-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* =============================================
+   Layout 3: Horizontal Row (side-by-side audios)
+   - Audio players in a row
+   - Good for full-width cards
+   ============================================= */
+.music-card.horizontal .audio-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.music-card.horizontal .audio-item {
   flex: 1;
-  min-width: 0;
+  min-width: 200px;
+}
+
+.music-card.horizontal .audio-item .music-label {
+  text-align: center;
+}
+
+/* =============================================
+   Layout 4: Comparison Card
+   - Two audio players for A/B comparison
+   - Labels for each
+   ============================================= */
+.music-card.comparison {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-card.comparison .comparison-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: auto;
+}
+
+.music-card.comparison .comparison-item {
+  text-align: center;
+}
+
+.music-card.comparison .comparison-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--background-accent);
+  border-radius: var(--border-radius);
+  display: inline-block;
 }
 
 @media (max-width: 500px) {
-  .dual-audio {
-    flex-direction: column;
+  .music-card.comparison .comparison-row {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Music Grid */
+/* =============================================
+   Layout 5: Grid Card (4 audios in 2x2 grid)
+   - For showing multiple samples
+   ============================================= */
+.music-card.grid-layout .audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.music-card.grid-layout .audio-item {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .music-card.grid-layout .audio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================
+   Layout 6: Full Width Card
+   - Spans entire row, horizontal audio layout
+   ============================================= */
+.music-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.music-card.full-width .audio-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* =============================================
+   Music Grid Container
+   ============================================= */
 .music-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.music-grid .column {
+  margin-bottom: 0;
 }
 
 @media (max-width: 968px) {
   .music-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =============================================
+   Utility Classes for Audio Cards
+   ============================================= */
+/* Tag/Badge for method name */
+.music-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.music-tag.ours {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.music-tag.baseline {
+  background: var(--background-accent);
+  color: var(--text-secondary);
+}
+
+.music-tag.gt {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+/* Divider between audio sections */
+.audio-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 1rem 0;
+}
+
+/* Sample Section Header */
+.samples-section {
+  margin-bottom: 3rem;
+}
+
+.samples-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.samples-section-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
 }
 
 
