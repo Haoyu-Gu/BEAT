@@ -1193,8 +1193,74 @@ a:focus {
 
 /* Encoding Efficiency Section */
 .efficiency-container {
-  max-width: 1000px !important;
+  max-width: 960px !important;
 }
+
+/* Segment Infilling Visualization */
+.infilling-container {
+  max-width: 960px !important;
+}
+
+.infilling-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infilling-card {
+  background: var(--background-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.infilling-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.infilling-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.infilling-image-wrapper img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.infilling-before {
+  position: relative;
+  z-index: 1;
+}
+
+.infilling-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.infilling-image-wrapper:hover .infilling-before {
+  opacity: 0;
+}
+
+.infilling-image-wrapper:hover .infilling-after {
+  opacity: 1;
+}
+
+.infilling-label {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
 
 /* Audio Samples Section - Wider Container */
 .samples-container {
