@@ -110,7 +110,7 @@
   </section>
 
   <!-- Encoding Efficiency -->
-  <section class="hero is-small">
+  <section class="hero is-small" id="section-efficiency">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Encoding Efficiency</h2>
@@ -515,8 +515,8 @@
   </section>
 
   <!-- Audio Samples -->
-  <section class="section hero is-light">
-    <div class="container">
+  <section class="section hero is-light" id="section-samples">
+    <div class="container is-fluid samples-container">
       <h2 class="title is-3 has-text-centered">Audio Samples</h2>
       <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
         Generated music samples demonstrating BEAT encoding quality
@@ -960,6 +960,10 @@
       <span class="section-nav-label">Top</span>
       <span class="section-nav-dot"></span>
     </a>
+    <a href="#section-efficiency" class="section-nav-item" data-section="section-efficiency">
+      <span class="section-nav-label">Efficiency</span>
+      <span class="section-nav-dot"></span>
+    </a>
     <a href="#section-continuation" class="section-nav-item" data-section="section-continuation">
       <span class="section-nav-label">Continuation</span>
       <span class="section-nav-dot"></span>
@@ -984,13 +988,13 @@
       <i class="fas fa-home"></i>
       <span>Top</span>
     </a>
+    <a href="#section-efficiency" class="mobile-nav-item" data-section="section-efficiency">
+      <i class="fas fa-chart-bar"></i>
+      <span>Efficiency</span>
+    </a>
     <a href="#section-continuation" class="mobile-nav-item" data-section="section-continuation">
       <i class="fas fa-music"></i>
       <span>Continue</span>
-    </a>
-    <a href="#section-expressive" class="mobile-nav-item" data-section="section-expressive">
-      <i class="fas fa-sliders-h"></i>
-      <span>Expressive</span>
     </a>
     <a href="#section-accompaniment" class="mobile-nav-item" data-section="section-accompaniment">
       <i class="fas fa-hands-helping"></i>
@@ -1013,7 +1017,7 @@
     }
 
     // Section Navigation
-    const sections = ['top', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack'];
+    const sections = ['top', 'section-efficiency', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack'];
     const navItems = document.querySelectorAll('.section-nav-item');
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
