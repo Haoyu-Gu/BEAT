@@ -1193,8 +1193,7 @@ a:focus {
 
 /* Audio Samples Section - Wider Container */
 .samples-container {
-  max-width: 1160px !important;
-  width: 80% !important;
+  max-width: 1000px !important;
   margin: 0 auto !important;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
@@ -1205,6 +1204,32 @@ a:focus {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+}
+
+/* Video Showcase Section */
+.video-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.video-item {
+  background: var(--background-primary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.video-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.video-item video {
+  width: 100%;
+  display: block;
+  border-radius: var(--border-radius-lg);
 }
 
 /* Sample Section Header */

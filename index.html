@@ -516,11 +516,32 @@
 
   <!-- Audio Samples -->
   <section class="section hero is-light" id="section-samples">
-    <div class="container is-fluid samples-container">
+    <div class="container samples-container">
       <h2 class="title is-3 has-text-centered">Audio Samples</h2>
       <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
         Generated music samples demonstrating BEAT encoding quality
       </p>
+
+      <!-- Section 0: Video Showcase -->
+      <div class="samples-section" id="section-showcase">
+        <h3 class="samples-section-title">Generation Showcase with Score Visualization</h3>
+        <p class="samples-section-desc">Video demonstrations of BEAT-generated music with synchronized score display</p>
+
+        <div class="video-showcase">
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="static/samples/showcase/demo_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="static/samples/showcase/demo_2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
 
       <!-- Section 1: Piano Continuation - Method Comparison -->
       <div class="samples-section" id="section-continuation">
@@ -970,6 +991,10 @@
       <span class="section-nav-label">Efficiency</span>
       <span class="section-nav-dot"></span>
     </a>
+    <a href="#section-showcase" class="section-nav-item" data-section="section-showcase">
+      <span class="section-nav-label">Showcase</span>
+      <span class="section-nav-dot"></span>
+    </a>
     <a href="#section-continuation" class="section-nav-item" data-section="section-continuation">
       <span class="section-nav-label">Continuation</span>
       <span class="section-nav-dot"></span>
@@ -994,9 +1019,9 @@
       <i class="fas fa-home"></i>
       <span>Top</span>
     </a>
-    <a href="#section-efficiency" class="mobile-nav-item" data-section="section-efficiency">
-      <i class="fas fa-chart-bar"></i>
-      <span>Efficiency</span>
+    <a href="#section-showcase" class="mobile-nav-item" data-section="section-showcase">
+      <i class="fas fa-video"></i>
+      <span>Showcase</span>
     </a>
     <a href="#section-continuation" class="mobile-nav-item" data-section="section-continuation">
       <i class="fas fa-music"></i>
@@ -1013,13 +1038,13 @@
   </nav>
 
   <script>
-    // Audio mutual exclusion - only one audio plays at a time
+    // Audio/Video mutual exclusion - only one media plays at a time
     document.addEventListener('DOMContentLoaded', function() {
-      const allAudios = document.querySelectorAll('audio');
-      allAudios.forEach(audio => {
-        audio.addEventListener('play', function() {
-          allAudios.forEach(other => {
-            if (other !== audio) {
+      const allMedia = document.querySelectorAll('audio, video');
+      allMedia.forEach(media => {
+        media.addEventListener('play', function() {
+          allMedia.forEach(other => {
+            if (other !== media) {
               other.pause();
             }
           });
@@ -1037,7 +1062,7 @@
     }
 
     // Section Navigation
-    const sections = ['top', 'section-efficiency', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack'];
+    const sections = ['top', 'section-efficiency', 'section-showcase', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack'];
     const navItems = document.querySelectorAll('.section-nav-item');
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
