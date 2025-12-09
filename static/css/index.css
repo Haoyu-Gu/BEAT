@@ -1193,8 +1193,8 @@ a:focus {
 
 /* Audio Samples Section - Wider Container */
 .samples-container {
-  max-width: 1400px !important;
-  width: 95% !important;
+  max-width: 1160px !important;
+  width: 80% !important;
   margin: 0 auto !important;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
