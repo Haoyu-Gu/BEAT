@@ -525,7 +525,7 @@
       <!-- Section 1: Piano Continuation - Method Comparison -->
       <div class="samples-section" id="section-continuation">
         <h3 class="samples-section-title">Piano Continuation - Method Comparison</h3>
-        <p class="samples-section-desc">4-bar prompt continuation comparing BEAT with baseline methods (REMI, ABC)</p>
+        <p class="samples-section-desc">4-bar prompt (~8 seconds) continuation comparing BEAT with baseline methods (REMI, ABC)</p>
 
         <div class="music-grid">
           <!-- Sample 1: 2x2 Grid comparison -->
@@ -648,24 +648,26 @@
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/2568281_GT.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/65794_GT.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">BEAT v1 <span class="music-tag ours">Ours</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/2568281_BEAT_1.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/65794_BEAT_1.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">BEAT v2 <span class="music-tag ours">Ours</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/2568281_BEAT_2.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/65794_BEAT_2.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label">&nbsp;</span>
-                <div style="height: 40px;"></div>
+                <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/piano_continuation_complex/65794_BEAT_3.mp3" type="audio/mpeg">
+                </audio>
               </div>
             </div>
           </div>
@@ -696,8 +698,10 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label">&nbsp;</span>
-                <div style="height: 40px;"></div>
+                <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/piano_continuation_complex/6165150_BEAT_3.mp3" type="audio/mpeg">
+                </audio>
               </div>
             </div>
           </div>
@@ -712,24 +716,26 @@
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/6246948_GT.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/6360862_GT.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">BEAT v1 <span class="music-tag ours">Ours</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/6246948_BEAT_1.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/6360862_BEAT_1.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">BEAT v2 <span class="music-tag ours">Ours</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_complex/6246948_BEAT_2.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_complex/6360862_BEAT_2.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label">&nbsp;</span>
-                <div style="height: 40px;"></div>
+                <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
+                <audio controls class="music-player" preload="none">
+                  <source src="static/samples/piano_continuation_complex/6360862_BEAT_3.mp3" type="audio/mpeg">
+                </audio>
               </div>
             </div>
           </div>
@@ -1007,6 +1013,20 @@
   </nav>
 
   <script>
+    // Audio mutual exclusion - only one audio plays at a time
+    document.addEventListener('DOMContentLoaded', function() {
+      const allAudios = document.querySelectorAll('audio');
+      allAudios.forEach(audio => {
+        audio.addEventListener('play', function() {
+          allAudios.forEach(other => {
+            if (other !== audio) {
+              other.pause();
+            }
+          });
+        });
+      });
+    });
+
     function copyBibTeX() {
       const bibtex = document.getElementById('bibtex-code').innerText;
       navigator.clipboard.writeText(bibtex).then(() => {
