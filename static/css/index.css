@@ -1191,6 +1191,11 @@ a:focus {
   margin: 1rem 0;
 }
 
+/* Encoding Efficiency Section */
+.efficiency-container {
+  max-width: 1000px !important;
+}
+
 /* Audio Samples Section - Wider Container */
 .samples-container {
   max-width: 1000px !important;
