@@ -473,7 +473,7 @@
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">Continuation (Segment Infilling) Results</h2>
+        <h2 class="title is-3 has-text-centered">Piano Continuation Results</h2>
         <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
           20 GT samples, 4-bar prompt, 10 generations each (with velocity)
         </p>
@@ -519,7 +519,7 @@
     <div class="container infilling-container">
       <h2 class="title is-3 has-text-centered">Multi-track Segment Infilling Visualization</h2>
       <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-        Hover to see the infilled segments in multi-track piano roll (before → after)
+        Hover to reveal the generated segments in multi-track piano roll (before → after)
       </p>
 
       <div class="infilling-grid">
@@ -566,18 +566,18 @@
       <!-- Section 0: Video Showcase -->
       <div class="samples-section" id="section-showcase">
         <h3 class="samples-section-title">Generation Showcase with Score Visualization</h3>
-        <p class="samples-section-desc">Video demonstrations of BEAT-generated music with synchronized score display</p>
+        <p class="samples-section-desc">Two unconditionally generated piano pieces with synchronized score display</p>
 
         <div class="video-showcase">
           <div class="video-item">
             <video controls preload="metadata">
-              <source src="static/samples/showcase/demo_1.mp4" type="video/mp4">
+              <source src="static/samples/showcase/demo_2.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           <div class="video-item">
             <video controls preload="metadata">
-              <source src="static/samples/showcase/demo_2.mp4" type="video/mp4">
+              <source src="static/samples/showcase/demo_1.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -587,7 +587,7 @@
       <!-- Section 1: Piano Continuation - Method Comparison -->
       <div class="samples-section" id="section-continuation">
         <h3 class="samples-section-title">Piano Continuation - Method Comparison</h3>
-        <p class="samples-section-desc">4-bar prompt (~8 seconds) continuation comparing BEAT with baseline methods (REMI, ABC)</p>
+        <p class="samples-section-desc">Each sample shows a 4-bar prompt (~8 seconds) continued by different encoding methods (GT, BEAT, REMI, ABC)</p>
 
         <div class="music-grid">
           <!-- Sample 1: 2x2 Grid comparison -->
@@ -595,7 +595,7 @@
             <div class="music-header">
               <h4 class="music-title">Sample 1</h4>
             </div>
-            <p class="music-description">Continuation from the same 4-bar prompt with different encoding methods</p>
+            <!-- <p class="music-description">Same 4-bar prompt continued by different encoding methods</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
@@ -629,7 +629,7 @@
             <div class="music-header">
               <h4 class="music-title">Sample 2</h4>
             </div>
-            <p class="music-description">Continuation from the same 4-bar prompt with different encoding methods</p>
+            <!-- <p class="music-description">Comparing encoding methods on a romantic-style phrase</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
@@ -663,30 +663,30 @@
             <div class="music-header">
               <h4 class="music-title">Sample 3</h4>
             </div>
-            <p class="music-description">Continuation from the same 4-bar prompt with different encoding methods</p>
+            <!-- <p class="music-description">Method comparison on a classical-style prompt</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_simple/4569161_GT.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_simple/496906_GT.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">BEAT <span class="music-tag ours">Ours</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_simple/4569161_BEAT.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_simple/496906_BEAT.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">REMI <span class="music-tag baseline">Baseline</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_simple/4569161_REMI.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_simple/496906_REMI.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
                 <span class="music-label">ABC <span class="music-tag baseline">Baseline</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_continuation_simple/4569161_REMI.mp3" type="audio/mpeg">
+                  <source src="static/samples/piano_continuation_simple/496906_REMI.mp3" type="audio/mpeg">
                 </audio>
               </div>
             </div>
@@ -697,7 +697,7 @@
       <!-- Section 2: Complex Piano Continuation -->
       <div class="samples-section" id="section-expressive">
         <h3 class="samples-section-title">Expressive Piano Continuation</h3>
-        <p class="samples-section-desc">Continuation on complex piano pieces with expressive dynamics</p>
+        <p class="samples-section-desc">Each sample shows one GT prompt with multiple BEAT continuations, demonstrating generation diversity</p>
 
         <div class="music-grid">
           <!-- Complex Sample 1 - 2x2 grid -->
@@ -705,7 +705,7 @@
             <div class="music-header">
               <h4 class="music-title">Expressive Sample 1</h4>
             </div>
-            <p class="music-description">GT prompt with multiple BEAT continuations showing diversity</p>
+            <!-- <p class="music-description">Multiple BEAT continuations demonstrating generation diversity</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
@@ -739,7 +739,7 @@
             <div class="music-header">
               <h4 class="music-title">Expressive Sample 2</h4>
             </div>
-            <p class="music-description">GT prompt with multiple BEAT continuations showing diversity</p>
+            <!-- <p class="music-description">Diverse continuations from a lyrical passage</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
@@ -773,7 +773,7 @@
             <div class="music-header">
               <h4 class="music-title">Expressive Sample 3</h4>
             </div>
-            <p class="music-description">One GT prompt with diverse BEAT continuations</p>
+            <!-- <p class="music-description">Varied continuations showcasing expressive dynamics</p> -->
             <div class="audio-grid-2x2">
               <div class="audio-item">
                 <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
@@ -813,7 +813,7 @@
           <div class="music-header">
             <h4 class="music-title">Accompaniment Samples</h4>
           </div>
-          <p class="music-description">Ground truth vs BEAT generated accompaniment</p>
+          <p class="music-description">Ground truth vs BEAT-generated accompaniment</p>
 
           <!-- Sample 1 -->
           <div class="audio-row-pair">
@@ -896,7 +896,7 @@
       <!-- Section 4: Multi-track Generation -->
       <div class="samples-section" id="section-multitrack">
         <h3 class="samples-section-title">Multi-track Ensemble</h3>
-        <p class="samples-section-desc">Rich textures with multiple instruments in coordination</p>
+        <p class="samples-section-desc">Multi-instrument coordination with rich harmonic textures (all samples truncated to 30s after audio rendering)</p>
 
         <div class="music-card full-width row-layout">
           <!-- String Quartet -->
@@ -962,7 +962,7 @@
           <!-- Clarinet & Piano -->
           <div class="audio-row-pair">
             <span class="row-label">Clarinet & Piano</span>
-            <span class="row-desc">Expressive clarinet with piano</span>
+            <span class="row-desc">Clarinet solo with piano accompaniment</span>
             <div class="audio-pair">
               <div class="audio-item">
                 <span class="music-label">Sample 1</span>
@@ -1052,6 +1052,10 @@
       <span class="section-nav-label">Multi-track</span>
       <span class="section-nav-dot"></span>
     </a>
+    <a href="#section-infilling-viz" class="section-nav-item" data-section="section-infilling-viz">
+      <span class="section-nav-label">Infilling Viz</span>
+      <span class="section-nav-dot"></span>
+    </a>
   </nav>
 
   <!-- Mobile Bottom Navigation -->
@@ -1075,6 +1079,10 @@
     <a href="#section-multitrack" class="mobile-nav-item" data-section="section-multitrack">
       <i class="fas fa-layer-group"></i>
       <span>Multi</span>
+    </a>
+    <a href="#section-infilling-viz" class="mobile-nav-item" data-section="section-infilling-viz">
+      <i class="fas fa-fill-drip"></i>
+      <span>Infill</span>
     </a>
   </nav>
 
@@ -1103,7 +1111,7 @@
     }
 
     // Section Navigation
-    const sections = ['top', 'section-efficiency', 'section-showcase', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack'];
+    const sections = ['top', 'section-efficiency', 'section-showcase', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack', 'section-infilling-viz'];
     const navItems = document.querySelectorAll('.section-nav-item');
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
