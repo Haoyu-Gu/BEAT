@@ -1482,5 +1482,126 @@ a:focus {
   }
 }
 
+/* =============================================
+   Subjective Evaluation Grid Layouts
+   ============================================= */
 
+/* Base eval row styling */
+.eval-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.eval-row:last-child {
+  border-bottom: none;
+}
+
+.eval-row .row-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Audio grid for evaluation - flexible columns */
+.audio-grid-eval {
+  display: grid;
+  gap: 1rem;
+}
+
+/* All eval grids: 2 columns layout */
+.audio-grid-eval.piano-grid,
+.audio-grid-eval.multitrack-grid,
+.audio-grid-eval.accomp-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+}
+
+.audio-grid-eval .audio-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.audio-grid-eval .music-label {
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.audio-grid-eval .music-player {
+  width: 100%;
+  height: 36px;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .eval-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .eval-row .row-label {
+    text-align: left;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  .audio-grid-eval .music-player {
+    height: 40px;
+  }
+}
+
+/* Responsive: Small Mobile */
+@media (max-width: 480px) {
+  .audio-grid-eval.piano-grid,
+  .audio-grid-eval.multitrack-grid,
+  .audio-grid-eval.accomp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================
+   Method-specific Tag Colors
+   ============================================= */
+.music-tag.abc {
+  background: #8b5cf6;
+  color: white;
+}
+
+.music-tag.remi {
+  background: #f59e0b;
+  color: white;
+}
+
+.music-tag.remi-plus {
+  background: #ef4444;
+  color: white;
+}
+
+.music-tag.cp {
+  background: #ec4899;
+  color: white;
+}
+
+.music-tag.anticipate {
+  background: #14b8a6;
+  color: white;
+}
+
+.music-tag.songdriver {
+  background: #6366f1;
+  color: white;
+}
+
+.music-tag.prompt {
+  background: #64748b;
+  color: white;
+}
 
