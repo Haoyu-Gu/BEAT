@@ -804,183 +804,6 @@
         </div>
       </div>
 
-      <!-- Section 3: Real-time Accompaniment -->
-      <div class="samples-section" id="section-accompaniment">
-        <h3 class="samples-section-title">Real-time Accompaniment</h3>
-        <p class="samples-section-desc">Piano accompaniment generation given melody input</p>
-
-        <div class="music-card full-width row-layout">
-          <div class="music-header">
-            <h4 class="music-title">Accompaniment Samples</h4>
-          </div>
-          <p class="music-description">Ground truth vs BEAT-generated accompaniment</p>
-
-          <!-- Sample 1 -->
-          <div class="audio-row-pair">
-            <span class="row-label">Sample 1</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag gt">GT</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample1_GT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag ours">Ours</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample1_BEAT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sample 2 -->
-          <div class="audio-row-pair">
-            <span class="row-label">Sample 2</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag gt">GT</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample2_GT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag ours">Ours</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample2_BEAT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sample 3 -->
-          <div class="audio-row-pair">
-            <span class="row-label">Sample 3</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag gt">GT</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample3_GT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag ours">Ours</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample3_BEAT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sample 4 -->
-          <div class="audio-row-pair">
-            <span class="row-label">Sample 4</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag gt">GT</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample4_GT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label"><span class="music-tag ours">Ours</span></span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/piano_accompaniment/sample4_BEAT.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 4: Multi-track Generation -->
-      <div class="samples-section" id="section-multitrack">
-        <h3 class="samples-section-title">Multi-track Ensemble</h3>
-        <p class="samples-section-desc">Multi-instrument coordination with rich harmonic textures (all samples truncated to 30s after audio rendering)</p>
-
-        <div class="music-card full-width row-layout">
-          <!-- String Quartet -->
-          <div class="audio-row-pair">
-            <span class="row-label">String Quartet</span>
-            <span class="row-desc">Violin I, II, Viola, Cello</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label">Sample 1</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/string_quartet/sample_20251205_131716_223_223_224_225_005_3.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label">Sample 2</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/string_quartet/sample_20251205_193109_223_223_224_225_010_3.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Piano Quartet -->
-          <div class="audio-row-pair">
-            <span class="row-label">Piano Quartet</span>
-            <span class="row-desc">Piano + Violin, Viola, Cello</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label">Sample 1</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/piano_quartet/sample_20251205_170452_183_231_231_231_017_1.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label">Sample 2</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/piano_quartet/sample_20251205_170452_183_231_231_231_018_2.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Piano & Choir -->
-          <div class="audio-row-pair">
-            <span class="row-label">Piano & Choir</span>
-            <span class="row-desc">Piano + SATB voices</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label">Sample 1</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/piano_choir/sample_20251205_165123_183_183_235_235_235_235_002_2.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label">Sample 2</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/piano_choir/sample_20251205_165123_183_183_235_235_235_235_006_3.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-
-          <!-- Clarinet & Piano -->
-          <div class="audio-row-pair">
-            <span class="row-label">Clarinet & Piano</span>
-            <span class="row-desc">Clarinet solo with piano accompaniment</span>
-            <div class="audio-pair">
-              <div class="audio-item">
-                <span class="music-label">Sample 1</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/clarinet_piano/sample_20251205_145009_183_183_251_004_2.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-              <div class="audio-item">
-                <span class="music-label">Sample 2</span>
-                <audio controls class="music-player" preload="none">
-                  <source src="static/samples/multitrack/clarinet_piano/sample_20251205_145009_183_183_251_008_2.mp3" type="audio/mpeg">
-                </audio>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -1021,9 +844,9 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label"><span class="music-tag remi-plus">REMI+</span></span>
+                <span class="music-label"><span class="music-tag remi">REMI</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/subjective_eval/piano/REMI_plus/1.mp3" type="audio/mpeg">
+                  <source src="static/samples/subjective_eval/piano/REMI/1.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
@@ -1064,9 +887,9 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label"><span class="music-tag remi-plus">REMI+</span></span>
+                <span class="music-label"><span class="music-tag remi">REMI</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/subjective_eval/piano/REMI_plus/2.mp3" type="audio/mpeg">
+                  <source src="static/samples/subjective_eval/piano/REMI/2.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
@@ -1107,9 +930,9 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label"><span class="music-tag remi-plus">REMI+</span></span>
+                <span class="music-label"><span class="music-tag remi">REMI</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/subjective_eval/piano/REMI_plus/3.mp3" type="audio/mpeg">
+                  <source src="static/samples/subjective_eval/piano/REMI/3.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
@@ -1150,9 +973,9 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label"><span class="music-tag remi-plus">REMI+</span></span>
+                <span class="music-label"><span class="music-tag remi">REMI</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/subjective_eval/piano/REMI_plus/4.mp3" type="audio/mpeg">
+                  <source src="static/samples/subjective_eval/piano/REMI/4.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
@@ -1193,9 +1016,9 @@
                 </audio>
               </div>
               <div class="audio-item">
-                <span class="music-label"><span class="music-tag remi-plus">REMI+</span></span>
+                <span class="music-label"><span class="music-tag remi">REMI</span></span>
                 <audio controls class="music-player" preload="none">
-                  <source src="static/samples/subjective_eval/piano/REMI_plus/5.mp3" type="audio/mpeg">
+                  <source src="static/samples/subjective_eval/piano/REMI/5.mp3" type="audio/mpeg">
                 </audio>
               </div>
               <div class="audio-item">
@@ -1649,14 +1472,6 @@
       <span class="section-nav-label">Expressive</span>
       <span class="section-nav-dot"></span>
     </a>
-    <a href="#section-accompaniment" class="section-nav-item" data-section="section-accompaniment">
-      <span class="section-nav-label">Accompaniment</span>
-      <span class="section-nav-dot"></span>
-    </a>
-    <a href="#section-multitrack" class="section-nav-item" data-section="section-multitrack">
-      <span class="section-nav-label">Multi-track</span>
-      <span class="section-nav-dot"></span>
-    </a>
     <a href="#section-subjective" class="section-nav-item" data-section="section-subjective">
       <span class="section-nav-label">Subjective Eval</span>
       <span class="section-nav-dot"></span>
@@ -1681,14 +1496,6 @@
       <i class="fas fa-music"></i>
       <span>Continue</span>
     </a>
-    <a href="#section-accompaniment" class="mobile-nav-item" data-section="section-accompaniment">
-      <i class="fas fa-hands-helping"></i>
-      <span>Accomp.</span>
-    </a>
-    <a href="#section-multitrack" class="mobile-nav-item" data-section="section-multitrack">
-      <i class="fas fa-layer-group"></i>
-      <span>Multi</span>
-    </a>
     <a href="#section-subjective" class="mobile-nav-item" data-section="section-subjective">
       <i class="fas fa-poll"></i>
       <span>Eval</span>
@@ -1711,7 +1518,7 @@
     });
 
     // Section Navigation
-    const sections = ['top', 'section-efficiency', 'section-infilling-viz', 'section-showcase', 'section-continuation', 'section-expressive', 'section-accompaniment', 'section-multitrack', 'section-subjective'];
+    const sections = ['top', 'section-efficiency', 'section-infilling-viz', 'section-showcase', 'section-continuation', 'section-expressive', 'section-subjective'];
     const navItems = document.querySelectorAll('.section-nav-item');
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
