@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
+  <meta name="title" content="BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps">
   <meta name="description" content="A novel symbolic music encoding method that adopts beat units as the basic primitive, achieving efficient serialization while explicitly preserving musical priors.">
   <meta name="keywords" content="symbolic music, music encoding, music representation, music generation, deep learning">
   <meta name="robots" content="index, follow">
@@ -13,14 +13,14 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
+  <meta property="og:title" content="BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps">
   <meta property="og:description" content="A novel symbolic music encoding method that adopts beat units as the basic primitive, achieving efficient serialization while explicitly preserving musical priors.">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations">
+  <meta name="citation_title" content="BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps">
   <meta name="citation_publication_date" content="2025">
 
-  <title>BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations</title>
+  <title>BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -57,7 +57,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">BEAT: Rethinking Symbolic Music Encoding with Beat-Anchored Tones Representations</h1>
+            <h1 class="title is-1 publication-title">BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps</h1>
 
             <!-- Authors hidden for double-blind review -->
             <div class="is-size-5 publication-authors" style="color: #888; font-style: italic;">
@@ -91,499 +91,14 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The perception of symbolic music is fundamentally based on the relative durations and interval relationships between the notes.
-              However, existing representations face an inherent trade-off between preserving these musical priors and achieving encoding efficiency.
-              In this paper, we propose <strong>BEAT</strong> (Beat-based Encoding with Anchored Tones), which breaks from the conventional note-event paradigm by adopting beat units as the basic primitive.
-              BEAT segments the temporal axis into beat units, organizing music as sequences of these units.
-              Within each beat, notes are sorted by pitch, with the first serving as an anchor point, while subsequent notes are encoded through chained relative intervals coupled with rhythmic patterns.
-              This approach achieves efficient serialization while explicitly preserving musical priors.
+              Tokenizing music in a form that works well within the general framework of language models is an appealing problem, given the diversity of symbolic structures through which music can be represented, including sequences, grids, and graphs. To date, most approaches tokenize symbolic music as sequences of musical events, such as onsets, pitches, time shifts, or compound note events. This strategy is intuitive and has proven effective in transformer-based models, but it treats the regularity of musical time implicitly: individual tokens may span different durations, resulting in non-uniform time progression.
             </p>
             <p>
-              Additionally, BEAT employs beat indexing for temporal alignment, enhancing both concurrent modeling capabilities and editability, enabling seamless adaptation to diverse downstream tasks.
-              Extensive experiments demonstrate that BEAT achieves better encoding efficiency than existing methods while achieving state-of-the-art generation quality in both objective and subjective benchmarks.
-              BEAT also consistently outperforms baselines across diverse tasks including multi-track generation, segment infilling, and real-time accompaniment.
+              In this paper, we instead consider whether an alternative tokenization is possible, where an even-length musical step (e.g., a beat) serves as the basic unit. Specifically, we encode all events within a single time step at the same pitch as one token, and group tokens explicitly by time step, which resembles a sparse encoding of a piano-roll representation. We evaluate the proposed tokenization on music continuation and accompaniment generation tasks, comparing it with mainstream event-based methods. Results show improved musical quality and long-term structural coherence, while additional analyses confirm higher efficiency and more effective capture of long-range patterns with the proposed tokenization.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Encoding Efficiency -->
-  <section class="hero is-small" id="section-efficiency">
-    <div class="hero-body">
-      <div class="container efficiency-container">
-        <h2 class="title is-3 has-text-centered">Encoding Efficiency</h2>
-
-        <!-- BPE Compression Rate -->
-        <div class="columns is-centered" style="margin-top: 2rem;">
-          <div class="column is-12">
-            <h3 class="title is-4">BPE Compression Rate</h3>
-            <p class="subtitle is-6" style="margin-bottom: 1.5rem;">
-              Measuring similarity to natural language through BPE compression efficiency
-            </p>
-            <div class="table-container">
-              <table class="table is-striped is-hoverable is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Method</th>
-                    <th>+20</th>
-                    <th>+100</th>
-                    <th>+500</th>
-                    <th>+5000</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>ABC</td>
-                    <td>80.15%</td>
-                    <td>62.66%</td>
-                    <td>52.57%</td>
-                    <td>43.57%</td>
-                  </tr>
-                  <tr>
-                    <td>REMI</td>
-                    <td>80.18%</td>
-                    <td>70.59%</td>
-                    <td>57.95%</td>
-                    <td>38.81%</td>
-                  </tr>
-                  <tr style="background-color: #e8f5e9;">
-                    <td><strong>Ours (BEAT)</strong></td>
-                    <td><strong>64.83%</strong></td>
-                    <td><strong>58.93%</strong></td>
-                    <td><strong>49.32%</strong></td>
-                    <td><strong>37.31%</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sequence Length -->
-        <div class="columns is-centered" style="margin-top: 2rem;">
-          <div class="column is-12">
-            <h3 class="title is-4">Sequence Length Comparison</h3>
-            <p class="subtitle is-6" style="margin-bottom: 1.5rem;">
-              Average token count on Advanced Piano Expression (APEX) dataset
-            </p>
-            <div class="table-container">
-              <table class="table is-striped is-hoverable is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Method</th>
-                    <th>Average Tokens</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>REMI</td>
-                    <td>2400 Tokens</td>
-                  </tr>
-                  <tr>
-                    <td>ABC</td>
-                    <td>3450.4 Tokens</td>
-                  </tr>
-                  <tr style="background-color: #e8f5e9;">
-                    <td><strong>Ours (BEAT)</strong></td>
-                    <td><strong>1825.6 Tokens</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Unconditional Generation -->
-  <section class="section hero is-light">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Unconditional Generation Results</h2>
-      <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-        Evaluation metrics: muspy statistics (JS divergence), CLAMP2-based FMD, MOS, LLM preference
-      </p>
-
-      <!-- Model Configurations -->
-      <div class="box" style="margin-bottom: 2rem;">
-        <h4 class="title is-5">Model Configurations</h4>
-        <div class="columns">
-          <div class="column">
-            <p><strong>GPT-2 Small:</strong> 6 layers, Hidden Size 512</p>
-          </div>
-          <div class="column">
-            <p><strong>GPT-2 Large:</strong> 12 layers, Hidden Size 768</p>
-          </div>
-          <div class="column">
-            <p><strong>LLaMA:</strong> 16 layers, Hidden Size 768</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- LLaMA Results -->
-      <div class="columns is-centered">
-        <div class="column is-12">
-          <h3 class="title is-4">LLaMA (16L, 768H)</h3>
-          <div class="table-container">
-            <table class="table is-striped is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>PR</th>
-                  <th>GC</th>
-                  <th>SC</th>
-                  <th>JS</th>
-                  <th>FMD</th>
-                  <th>MOS</th>
-                  <th>LLM</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>REMI</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>CP</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>Octuple</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>ABC</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #e8f5e9;">
-                  <td><strong>Ours (BEAT)</strong></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>101</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #f5f5f5;">
-                  <td><em>GT</em></td>
-                  <td><em>μ=0.579, σ=0.321</em></td>
-                  <td><em>μ=0.984, σ=0.007</em></td>
-                  <td><em>μ=0.935, σ=0.078</em></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- GPT-2 Large Results -->
-      <div class="columns is-centered" style="margin-top: 2rem;">
-        <div class="column is-12">
-          <h3 class="title is-4">GPT-2 Large (12L, 768H)</h3>
-          <div class="table-container">
-            <table class="table is-striped is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>PR</th>
-                  <th>GC</th>
-                  <th>SC</th>
-                  <th>JS</th>
-                  <th>FMD</th>
-                  <th>MOS</th>
-                  <th>LLM</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>REMI</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>CP</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>ABC</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #e8f5e9;">
-                  <td><strong>Ours (BEAT)</strong></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>101</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #f5f5f5;">
-                  <td><em>GT</em></td>
-                  <td><em>μ=0.579, σ=0.321</em></td>
-                  <td><em>μ=0.984, σ=0.007</em></td>
-                  <td><em>μ=0.935, σ=0.078</em></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- GPT-2 Small Results -->
-      <div class="columns is-centered" style="margin-top: 2rem;">
-        <div class="column is-12">
-          <h3 class="title is-4">GPT-2 Small (6L, 512H)</h3>
-          <div class="table-container">
-            <table class="table is-striped is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>PR</th>
-                  <th>GC</th>
-                  <th>SC</th>
-                  <th>JS</th>
-                  <th>FMD</th>
-                  <th>MOS</th>
-                  <th>LLM</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>REMI</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>CP</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>Octuple</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>ABC</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #e8f5e9;">
-                  <td><strong>Ours (BEAT)</strong></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>101</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-                <tr style="background-color: #f5f5f5;">
-                  <td><em>GT</em></td>
-                  <td><em>μ=0.579, σ=0.321</em></td>
-                  <td><em>μ=0.984, σ=0.007</em></td>
-                  <td><em>μ=0.935, σ=0.078</em></td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Continuation Task -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3 has-text-centered">Piano Continuation Results</h2>
-        <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-          20 GT samples, 4-bar prompt, 10 generations each (with velocity)
-        </p>
-
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="table-container">
-              <table class="table is-striped is-hoverable is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Method</th>
-                    <th>FMD</th>
-                    <th>MOS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>REMI</td>
-                    <td>454.07</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>ABC</td>
-                    <td>460.37</td>
-                    <td>-</td>
-                  </tr>
-                  <tr style="background-color: #e8f5e9;">
-                    <td><strong>Ours (BEAT)</strong></td>
-                    <td><strong>310.55</strong></td>
-                    <td>-</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Segment Infilling Visualization -->
-  <section class="section hero is-light" id="section-infilling-viz">
-    <div class="container infilling-container">
-      <h2 class="title is-3 has-text-centered">Multi-track Segment Infilling Visualization</h2>
-      <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-        Hover to reveal the generated segments in multi-track piano roll (before → after)
-      </p>
-
-      <div class="infilling-grid">
-        <div class="infilling-card">
-          <div class="infilling-image-wrapper">
-            <img src="static/images/infilling/before1.png" alt="Before 1" class="infilling-before">
-            <img src="static/images/infilling/after1.png" alt="After 1" class="infilling-after">
-          </div>
-          <p class="infilling-label">Sample 1</p>
-        </div>
-        <div class="infilling-card">
-          <div class="infilling-image-wrapper">
-            <img src="static/images/infilling/before2.png" alt="Before 2" class="infilling-before">
-            <img src="static/images/infilling/after2.png" alt="After 2" class="infilling-after">
-          </div>
-          <p class="infilling-label">Sample 2</p>
-        </div>
-        <div class="infilling-card">
-          <div class="infilling-image-wrapper">
-            <img src="static/images/infilling/before3.png" alt="Before 3" class="infilling-before">
-            <img src="static/images/infilling/after3.png" alt="After 3" class="infilling-after">
-          </div>
-          <p class="infilling-label">Sample 3</p>
-        </div>
-        <div class="infilling-card">
-          <div class="infilling-image-wrapper">
-            <img src="static/images/infilling/before4.png" alt="Before 4" class="infilling-before">
-            <img src="static/images/infilling/after4.png" alt="After 4" class="infilling-after">
-          </div>
-          <p class="infilling-label">Sample 4</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audio Samples -->
-  <section class="section hero is-light" id="section-samples">
-    <div class="container samples-container">
-      <h2 class="title is-3 has-text-centered">Audio Samples</h2>
-      <p class="subtitle is-5 has-text-centered" style="margin-bottom: 2rem;">
-        Generated music samples demonstrating BEAT encoding quality
-      </p>
-
-      <!-- Section 0: Video Showcase -->
-      <div class="samples-section" id="section-showcase">
-        <h3 class="samples-section-title">Generation Showcase with Score Visualization</h3>
-        <p class="samples-section-desc">Two unconditionally generated piano pieces with synchronized score display</p>
-
-        <div class="video-showcase">
-          <div class="video-item">
-            <video controls preload="metadata">
-              <source src="static/samples/showcase/demo_2.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="video-item">
-            <video controls preload="metadata">
-              <source src="static/samples/showcase/demo_1.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -1429,18 +944,6 @@
       <span class="section-nav-label">Top</span>
       <span class="section-nav-dot"></span>
     </a>
-    <a href="#section-efficiency" class="section-nav-item" data-section="section-efficiency">
-      <span class="section-nav-label">Efficiency</span>
-      <span class="section-nav-dot"></span>
-    </a>
-    <a href="#section-infilling-viz" class="section-nav-item" data-section="section-infilling-viz">
-      <span class="section-nav-label">Infilling Viz</span>
-      <span class="section-nav-dot"></span>
-    </a>
-    <a href="#section-showcase" class="section-nav-item" data-section="section-showcase">
-      <span class="section-nav-label">Showcase</span>
-      <span class="section-nav-dot"></span>
-    </a>
     <a href="#section-subjective" class="section-nav-item" data-section="section-subjective">
       <span class="section-nav-label">Subjective Eval</span>
       <span class="section-nav-dot"></span>
@@ -1456,14 +959,6 @@
     <a href="#" class="mobile-nav-item active" data-section="top">
       <i class="fas fa-home"></i>
       <span>Top</span>
-    </a>
-    <a href="#section-infilling-viz" class="mobile-nav-item" data-section="section-infilling-viz">
-      <i class="fas fa-fill-drip"></i>
-      <span>Infill</span>
-    </a>
-    <a href="#section-showcase" class="mobile-nav-item" data-section="section-showcase">
-      <i class="fas fa-video"></i>
-      <span>Showcase</span>
     </a>
     <a href="#section-subjective" class="mobile-nav-item" data-section="section-subjective">
       <i class="fas fa-poll"></i>
@@ -1491,7 +986,7 @@
     });
 
     // Section Navigation
-    const sections = ['top', 'section-efficiency', 'section-infilling-viz', 'section-showcase', 'section-subjective', 'section-expressive'];
+    const sections = ['top', 'section-subjective', 'section-expressive'];
     const navItems = document.querySelectorAll('.section-nav-item');
     const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
 
