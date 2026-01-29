@@ -78,7 +78,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Tokenizing music in a form that works well within the general framework of language models is an appealing problem, given the diversity of symbolic structures through which music can be represented, including sequences, grids, and graphs. To date, most approaches tokenize symbolic music as sequences of musical events, such as onsets, pitches, time shifts, or compound note events. This strategy is intuitive and has proven effective in transformer-based models, but it treats the regularity of musical time implicitly: individual tokens may span different durations, resulting in non-uniform time progression.
+              Tokenizing music to fit the general framework of language models is a compelling challenge, especially considering the diverse symbolic structures in which music can be represented, including sequences, grids, and graphs. To date, most approaches tokenize symbolic music as sequences of musical events, such as onsets, pitches, time shifts, or compound note events. This strategy is intuitive and has proven effective in Transformer-based models, but it treats the regularity of musical time implicitly: individual tokens may span different durations, resulting in non-uniform time progression.
             </p>
             <p>
               In this paper, we instead consider whether an alternative tokenization is possible, where an even-length musical step (e.g., a beat) serves as the basic unit. Specifically, we encode all events within a single time step at the same pitch as one token, and group tokens explicitly by time step, which resembles a sparse encoding of a piano-roll representation. We evaluate the proposed tokenization on music continuation and accompaniment generation tasks, comparing it with mainstream event-based methods. Results show improved musical quality and long-term structural coherence, while additional analyses confirm higher efficiency and more effective capture of long-range patterns with the proposed tokenization.
@@ -99,9 +99,9 @@
 
       <!-- Quick Navigation -->
       <div class="has-text-centered" style="margin-bottom: 2rem;">
-        <a href="#section-piano-eval" class="button is-rounded is-info is-outlined" style="margin: 0.3rem; font-weight: 500;">Piano Continuation</a>
-        <a href="#section-multitrack-eval" class="button is-rounded is-success is-outlined" style="margin: 0.3rem; font-weight: 500;">Multitrack Continuation</a>
-        <a href="#section-accomp-eval" class="button is-rounded is-warning is-outlined" style="margin: 0.3rem; font-weight: 500;">Real-time Accompaniment</a>
+        <a href="#section-piano-eval" class="button is-rounded is-info" style="margin: 0.3rem; font-weight: 500;">Piano Continuation</a>
+        <a href="#section-multitrack-eval" class="button is-rounded is-success" style="margin: 0.3rem; font-weight: 500;">Multitrack Continuation</a>
+        <a href="#section-accomp-eval" class="button is-rounded is-link" style="margin: 0.3rem; font-weight: 500;">Real-time Accompaniment</a>
       </div>
 
       <!-- Piano Continuation Task -->
@@ -800,113 +800,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Expressive Piano Continuation -->
-      <div class="samples-section" id="section-expressive">
-        <h3 class="samples-section-title">Expressive Piano Continuation</h3>
-        <p class="samples-section-desc">Each sample shows one GT prompt with multiple BEAT continuations, demonstrating generation diversity</p>
-
-        <div class="music-grid">
-        <!-- Complex Sample 1 - 2x2 grid -->
-        <div class="music-card full-width grid-2x2">
-          <div class="music-header">
-            <h4 class="music-title">Expressive Sample 1</h4>
-          </div>
-          <div class="audio-grid-2x2">
-            <div class="audio-item">
-              <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/65794_GT.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v1 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/65794_BEAT_1.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v2 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/65794_BEAT_2.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/65794_BEAT_3.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-          </div>
-        </div>
-
-        <!-- Complex Sample 2 - 2x2 grid -->
-        <div class="music-card full-width grid-2x2">
-          <div class="music-header">
-            <h4 class="music-title">Expressive Sample 2</h4>
-          </div>
-          <div class="audio-grid-2x2">
-            <div class="audio-item">
-              <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6165150_GT.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v1 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6165150_BEAT_1.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v2 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6165150_BEAT_2.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6165150_BEAT_3.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-          </div>
-        </div>
-
-        <!-- Complex Sample 3 - 2x2 grid -->
-        <div class="music-card full-width grid-2x2">
-          <div class="music-header">
-            <h4 class="music-title">Expressive Sample 3</h4>
-          </div>
-          <div class="audio-grid-2x2">
-            <div class="audio-item">
-              <span class="music-label">Ground Truth <span class="music-tag gt">GT</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6360862_GT.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v1 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6360862_BEAT_1.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v2 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6360862_BEAT_2.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <div class="audio-item">
-              <span class="music-label">BEAT v3 <span class="music-tag ours">Ours</span></span>
-              <audio controls class="music-player" preload="none">
-                <source src="static/samples/piano_continuation_complex/6360862_BEAT_3.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
 
