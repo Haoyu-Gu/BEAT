@@ -107,7 +107,7 @@
       <!-- Piano Continuation Task -->
       <div class="samples-section" id="section-piano-eval">
         <h3 class="samples-section-title">Piano Continuation</h3>
-        <p class="samples-section-desc">Given a 4-bar prompt, models continue to generate complete piano music. Compare GT with 6 baseline methods.</p>
+        <p class="samples-section-desc">Given a 4-bar prompt from the test set, models generate 30-bar continuations (~1 min audio). Samples are rendered using MuseScore soundfonts at 120 BPM. Compare BEAT with REMI, Compound Word, ABC, and other baselines against Ground Truth.</p>
 
         <div class="music-card full-width row-layout">
           <!-- Sample 1 -->
@@ -390,7 +390,7 @@
       <!-- Multitrack Continuation Task -->
       <div class="samples-section" id="section-multitrack-eval">
         <h3 class="samples-section-title">Multitrack Continuation</h3>
-        <p class="samples-section-desc">Given a 4-bar prompt, models continue to generate complete multi-track music. Compare GT with 4 baseline methods.</p>
+        <p class="samples-section-desc">Given a 4-bar multi-track prompt, models generate 30-bar ensemble continuations with multiple instruments. Compare BEAT with REMI, ABC, and AMT (Anticipatory Music Transformer) baselines against Ground Truth.</p>
 
         <div class="music-card full-width row-layout">
           <!-- Sample 1 -->
@@ -643,7 +643,7 @@
       <!-- Real-time Accompaniment Task -->
       <div class="samples-section" id="section-accomp-eval">
         <h3 class="samples-section-title">Real-time Accompaniment</h3>
-        <p class="samples-section-desc">Given a 4-bar prompt and subsequent melody, models generate accompaniment in real-time. Prompt contains the first 4 bars (full) + subsequent melody (single track).</p>
+        <p class="samples-section-desc">Given a 4-bar full prompt followed by a melody line, models generate real-time accompaniment to support the melody. Compare BEAT with SongDriver baseline. BEAT significantly outperforms the baseline in subjective evaluation.</p>
 
         <div class="music-card full-width row-layout">
           <!-- Sample 1 -->
