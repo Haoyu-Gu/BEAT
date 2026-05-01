@@ -18,7 +18,7 @@
 
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps">
-  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_publication_date" content="2026">
 
   <title>BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps</title>
 
@@ -59,9 +59,15 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">BEAT: Tokenizing and Generating Symbolic Music by Uniform Temporal Steps</h1>
 
-            <!-- Authors hidden for double-blind review -->
-            <div class="is-size-5 publication-authors" style="color: #888; font-style: italic;">
-              <span class="author-block">Anonymous Authors</span>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Lekai Qian,</span>
+              <span class="author-block">Haoyu Gu,</span>
+              <span class="author-block">Jingwei Zhao,</span>
+              <span class="author-block">Ziyu Wang</span>
+            </div>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+              <span class="author-block"><i>ICML 2026</i></span>
             </div>
 
           </div>
@@ -84,6 +90,23 @@
               In this paper, we instead consider whether an alternative tokenization is possible, where an even-length musical step (e.g., a beat) serves as the basic unit. Specifically, we encode all events within a single time step at the same pitch as one token, and group tokens explicitly by time step, which resembles a sparse encoding of a piano roll representation. We evaluate the proposed tokenization on music continuation and accompaniment generation tasks, comparing it with mainstream event-based methods. Results show improved musical quality and long-term structural coherence, while additional analyses confirm higher efficiency and more effective capture of long-range patterns with the proposed tokenization.
             </p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method / Framework Figure -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Method</h2>
+          <figure class="image" style="margin: 1.5rem auto; max-width: 1000px;">
+            <img src="static/images/framework.png" alt="BEAT framework: beat-aligned enumeration of active tones">
+          </figure>
+          <p class="content has-text-justified" style="margin-top: 1rem;">
+            BEAT re-expresses notes as temporal states (onset / sustain / rest) and serializes music beat by beat, enumerating only the active pitches within each beat. This yields a time-centric token stream where sequence position corresponds directly to musical time.
+          </p>
         </div>
       </div>
     </div>
